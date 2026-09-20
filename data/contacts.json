@@ -1,0 +1,11 @@
+[
+  {
+    "id": "MSG-101",
+    "name": "Rodrigo Almeida",
+    "email": "rodrigo.a@example.com",
+    "phone": "(11) 91234-5678",
+    "subject": "Reserva Corporativa",
+    "message": "Gostaria de fechar o mezanino VIP para um evento de lançamento no dia 15/11.",
+    "createdAt": "2026-09-20T08:20:00Z"
+  }
+]

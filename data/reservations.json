@@ -1,0 +1,18 @@
+[
+  {
+    "id": "LAC-8942-VIP",
+    "name": "Gabriel Vasconcelos",
+    "email": "gabriel.vip@example.com",
+    "phone": "(11) 98765-4321",
+    "sector": "black-gold",
+    "sectorName": "Camarote Black & Gold Master",
+    "date": "2026-10-31",
+    "time": "23:00",
+    "guests": "12",
+    "combo": "combo3",
+    "comboName": "Combo Dom Pérignon & Belvedere",
+    "totalEstimate": "R$ 7.950",
+    "status": "Confirmado",
+    "createdAt": "2026-09-20T08:00:00Z"
+  }
+]

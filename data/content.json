@@ -1,0 +1,268 @@
+{
+  "identity": {
+    "clubName": "Los Angeles Club",
+    "clubSlogan": "Light Your Night & Vibe High",
+    "logoTextMain": "LOS ANGELES",
+    "logoTextSub": "NIGHTCLUB & LOUNGE",
+    "logoImageUrl": "",
+    "tagline": "A experiência noturna mais exclusiva e imersiva de música eletrônica, coquetelaria autoral e lounges VIP de alto padrão.",
+    "ageRestriction": "18+ Somente Adultos",
+    "metaDescription": "Los Angeles Club - A boate e lounge mais exclusivo da noite. DJs internacionais, som imersivo, coquetéis autorais e camarotes premium."
+  },
+  "colors": {
+    "neonCyan": "#00deff",
+    "neonCyanGlow": "rgba(0, 222, 255, 0.6)",
+    "neonPink": "#f92056",
+    "neonPinkGlow": "rgba(249, 32, 86, 0.6)",
+    "bgPrimary": "#07080c",
+    "bgSecondary": "#0d0f17",
+    "bgTertiary": "#131722",
+    "bgCard": "rgba(18, 22, 35, 0.72)",
+    "textMain": "#ffffff",
+    "textBody": "#e2e8f0",
+    "textMuted": "#94a3b8"
+  },
+  "hero": {
+    "badge": "A Casa Noturna Mais Exclusiva da Cidade",
+    "titlePrefix": "LIGHT YOUR",
+    "titleHighlight": "NIGHT",
+    "description": "Uma fusão inigualável de sonoridades eletrônicas globais, espetáculos visuais em laser neon e serviços de camarote VIP ultra premium.",
+    "ctaReservarText": "Reservar Camarote VIP",
+    "ctaEventosText": "Ver Programação",
+    "countdownLabel": "Próxima Grande Noite Em:",
+    "countdownTarget": "2026-10-31T22:00:00",
+    "quickCards": [
+      {
+        "id": "dj",
+        "tag": "Resident DJ",
+        "title": "Top DJs Globais",
+        "desc": "Sets ao vivo com os maiores nomes da cena de Ibiza e festivais europeus.",
+        "bgImage": "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": "open",
+        "tag": "Opening Hours",
+        "title": "Quinta a Domingo",
+        "desc": "Das 22h até o amanhecer com atmosfera eletrizante.",
+        "bgImage": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": "drinks",
+        "tag": "Mixology VIP",
+        "title": "Trending Drinks",
+        "desc": "Carta autoral assinada por mixologistas premiados internacionalmente.",
+        "bgImage": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80"
+      }
+    ]
+  },
+  "about": {
+    "tag": "Let's Chill Together",
+    "title": "Aonde a Música e a Alta Sociedade Noturna se Encontram",
+    "leadParagraph": "Fundado para redefinir o conceito de entretenimento noturno de luxo, o Los Angeles Club combina arquitetura futurista, acústica de padrão internacional e atendimento VIP privativo.",
+    "subParagraph": "Com pistas climatizadas, sistema de iluminação inteligente com lasers dinâmicos e lounges desenhados para o máximo conforto e sofisticação.",
+    "experienceBadges": [
+      "Sistema de Som Funktion-One Imersivo",
+      "Lasers Neon & Painéis LED 8K",
+      "Segurança e Valet Exclusivo"
+    ],
+    "stats": [
+      { "number": 500, "suffix": "+", "label": "Noites Inesquecíveis Realizadas" },
+      { "number": 120, "suffix": "+", "label": "DJs e Atrações Internacionais" },
+      { "number": 50, "suffix": "k+", "label": "Membros e Frequentadores VIP" },
+      { "number": 15, "suffix": " Anos", "label": "Liderança na Noite e Entretenimento" }
+    ]
+  },
+  "events": [
+    {
+      "id": 1,
+      "title": "Neon Wonderland: Electric Festival",
+      "genre": "edm",
+      "genreLabel": "EDM & Festival",
+      "date": "Sexta-feira, 24 de Outubro",
+      "time": "22:00 - 06:00",
+      "lineup": "DJ Marcus Vortex + Convidados Internacionais",
+      "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+      "badge": "Destaque",
+      "price": 90,
+      "status": "Ingressos 2º Lote Disponíveis",
+      "description": "Uma imersão futurista com chuvas de laser ciano, pulseiras de LED interativas e os maiores sucessos do circuito Tomorrowland e Ultra Music Festival."
+    },
+    {
+      "id": 2,
+      "title": "Midnight Mirage: Deep House Odyssey",
+      "genre": "deep-house",
+      "genreLabel": "Deep House & Tech",
+      "date": "Sábado, 25 de Outubro",
+      "time": "23:00 - 07:00",
+      "lineup": "Alexia Frost (Ibiza Set) + Tech Groove Trio",
+      "image": "https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?auto=format&fit=crop&w=800&q=80",
+      "badge": "Alta Procura",
+      "price": 120,
+      "status": "Últimos Ingressos 1º Lote",
+      "description": "Grooves profundos, linhas de baixo hipnóticas e sintetizadores analógicos criando uma experiência sensorial única inspirada nos melhores beach clubs de Mykonos."
+    },
+    {
+      "id": 3,
+      "title": "Urban Royalty: Hip-Hop & Trap Deluxe",
+      "genre": "hip-hop",
+      "genreLabel": "Hip-Hop & Trap",
+      "date": "Quinta-feira, 30 de Outubro",
+      "time": "22:00 - 05:00",
+      "lineup": "Kendrick Blaze + DJ Maya Flow",
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80",
+      "badge": "Open Format",
+      "price": 80,
+      "status": "Ingressos Liberados",
+      "description": "O melhor do Hip-Hop internacional, Trap clássico e ritmos urbanos com dançarinos performáticos e combos especiais de destilados a noite toda."
+    },
+    {
+      "id": 4,
+      "title": "Golden Sunset & Night Fever",
+      "genre": "sunset-vip",
+      "genreLabel": "Sunset & VIP",
+      "date": "Domingo, 02 de Novembro",
+      "time": "18:00 - 03:00",
+      "lineup": "Luna Ray + Sunset Acoustic Duo",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
+      "badge": "Sunset Especial",
+      "price": 70,
+      "status": "Lista VIP Disponível",
+      "description": "Comece assistindo o pôr do sol no nosso rooftop panorâmico e continue a noite na pista principal com drinks refrescantes e house melódico."
+    }
+  ],
+  "djs": [
+    {
+      "id": 1,
+      "name": "Alexia Frost",
+      "style": "Melodic & Deep House",
+      "role": "Residente Principal",
+      "bio": "Residente das quintas e sextas, trazendo sonoridades refinadas de festivais europeus e Ibiza.",
+      "image": "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&w=700&q=80",
+      "trackId": 2,
+      "soundcloud": "#",
+      "spotify": "#",
+      "instagram": "#"
+    },
+    {
+      "id": 2,
+      "name": "Marcus Vortex",
+      "style": "Big Room & Progressive EDM",
+      "role": "Headliner de Sábado",
+      "bio": "Energia máxima e drops explosivos nas noites de sábado. Presença constante nos maiores festivais mundiais.",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=80",
+      "trackId": 1,
+      "soundcloud": "#",
+      "spotify": "#",
+      "instagram": "#"
+    },
+    {
+      "id": 3,
+      "name": "Kendrick Blaze",
+      "style": "Trap, Hip-Hop & Bass",
+      "role": "Noites Urbanas",
+      "bio": "Mestre dos beats pesados e mixagens ao vivo de vinil, criando atmosferas intensas e eletrizantes.",
+      "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=700&q=80",
+      "trackId": 3,
+      "soundcloud": "#",
+      "spotify": "#",
+      "instagram": "#"
+    },
+    {
+      "id": 4,
+      "name": "Luna Ray",
+      "style": "Afro House & Tech Minimal",
+      "role": "Special Sunset Sessions",
+      "bio": "Ritmos envolventes e batidas tribais que conectam a alma à pista de dança até o raiar do dia.",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80",
+      "trackId": 2,
+      "soundcloud": "#",
+      "spotify": "#",
+      "instagram": "#"
+    }
+  ],
+  "menu": {
+    "cocktails": [
+      {
+        "id": "c1",
+        "name": "Neon Cyan Cyberpunk",
+        "desc": "Gin artesanal, curaçao blue, tônica botânica, infusão de limão siciliano e fumaça aromática de alecrim.",
+        "price": "R$ 48",
+        "badge": "Exclusivo",
+        "volume": "380ml",
+        "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "c2",
+        "name": "Pink Velvet Mirage",
+        "desc": "Vodka premium, purê de framboesa silvestre, licor de hibisco, xarope de flor de laranjeira e glitter comestível.",
+        "price": "R$ 52",
+        "badge": "Mais Pedido",
+        "volume": "350ml",
+        "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "c3",
+        "name": "Smoked Gold Old Fashioned",
+        "desc": "Bourbon envelhecido 12 anos, bitter de laranja amarga, açúcar demerara defumado e lâminas de ouro 24k.",
+        "price": "R$ 64",
+        "badge": "Autoral VIP",
+        "volume": "250ml",
+        "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=600&q=80"
+      }
+    ],
+    "bottles": [
+      {
+        "id": "b1",
+        "name": "Dom Pérignon Vintage Luminous",
+        "desc": "Champagne francês com rótulo iluminado neon, notas florais e paladar encorpado e sofisticado.",
+        "price": "R$ 2.850",
+        "badge": "VIP Icon",
+        "volume": "750ml",
+        "image": "https://images.unsplash.com/photo-1569919659476-f0852f6834b7?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        "id": "b2",
+        "name": "Belvedere Night Saber 1.75L",
+        "desc": "Vodka polonesa quádrupla destilação em garrafa magnum iluminada por LEDs azuis.",
+        "price": "R$ 1.450",
+        "badge": "Magnum",
+        "volume": "1750ml",
+        "image": "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=600&q=80"
+      }
+    ]
+  },
+  "contacts": {
+    "address": "Av. Brigadeiro Faria Lima, 4500 - Itaim Bibi, São Paulo - SP",
+    "phone": "+55 (11) 3088-9900",
+    "whatsapp": "+55 (11) 99876-5432",
+    "email": "vip@losangelesclub.com.br",
+    "hoursThurs": "22h00 - 05h00",
+    "hoursFri": "22h00 - 06h00",
+    "hoursSat": "23h00 - 07h00",
+    "hoursSun": "18h00 - 03h00",
+    "instagram": "https://instagram.com/losangelesclub",
+    "facebook": "https://facebook.com/losangelesclub",
+    "spotify": "https://spotify.com",
+    "youtube": "https://youtube.com"
+  },
+  "vipServices": {
+    "bistro": {
+      "name": "Mesa Bistrô",
+      "capacity": "Até 4 pessoas",
+      "price": 1200,
+      "benefits": ["Entrada VIP sem filas", "1 Garrafa de Destilado Premium", "Garçom Dedicado"]
+    },
+    "mezzanine": {
+      "name": "Lounge Mezanino VIP",
+      "capacity": "Até 8 pessoas",
+      "price": 2800,
+      "benefits": ["Visão panorâmica da pista", "2 Garrafas Premium + 10 Energéticos", "Sofá Privativo", "Atendimento Exclusivo"]
+    },
+    "blackGold": {
+      "name": "Camarote Black & Gold Master",
+      "capacity": "Até 15 pessoas",
+      "price": 5500,
+      "benefits": ["Localização nobre ao lado do DJ", "3 Garrafas Premium + 2 Champagnes", "Segurança privativo", "Estacionamento VIP"]
+    }
+  }
+}

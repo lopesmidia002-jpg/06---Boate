@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Los Angeles Club | Light Your Night - Balada & Lounge VIP</title>
+  <meta name="description" content="A experiência noturna mais exclusiva de Los Angeles. Festas memoráveis, DJs internacionais de EDM e House, cardápio de drinks premium e camarotes VIP exclusivos.">
+  <meta name="keywords" content="boate, balada, nightclub, lounge vip, camarotes, djs internacionais, edm, house, los angeles club, light your night">
+  <meta name="author" content="Los Angeles Club">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Los Angeles Club | Light Your Night - Balada & Lounge VIP">
+  <meta property="og:description" content="Viva a noite com o melhor som, iluminação laser e drinks de autor. Reserve sua mesa ou camarote VIP.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:url" content="https://losangelesclub.com.br">
+
+  <!-- Favicon SVG Neon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍸</text></svg>">
+
+  <!-- Folhas de Estilo -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Bar & Mini Player de Som -->
+  <div id="top-announcement-bar" class="top-bar">
+    <div class="container flex-between">
+      <div class="top-info">
+        <span><i class="fa-solid fa-location-dot text-neon-cyan"></i> Sunset Blvd 1080, Los Angeles</span>
+        <span class="divider-dot">•</span>
+        <span><i class="fa-solid fa-clock text-neon-pink"></i> Quinta a Domingo: 22h às 06h</span>
+      </div>
+      <div class="top-player-container flex-center">
+        <button id="audio-prev-btn" class="player-control-mini" aria-label="Música Anterior">
+          <i class="fa-solid fa-backward-step"></i>
+        </button>
+        <button id="audio-toggle-btn" class="player-mini-btn" aria-label="Tocar / Pausar Música">
+          <i class="fa-solid fa-play" id="audio-icon"></i>
+        </button>
+        <button id="audio-next-btn" class="player-control-mini" aria-label="Próxima Música">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+        <div class="sound-wave-bars flex-center" id="audio-visualizer">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+          <span class="bar bar-4"></span>
+        </div>
+        <span class="now-playing-title" id="now-playing-text">Club Mix • Martin Garrix Live</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Principal com Navegação -->
+  <header id="main-header" class="site-header">
+    <div class="container flex-between">
+      <!-- Logo da Boate -->
+      <a href="#hero" class="site-logo">
+        <span class="logo-sub font-accent text-neon-cyan">Los Angeles</span>
+        <span class="logo-main text-neon-pink">CLUB<span class="logo-dot">.</span></span>
+      </a>
+
+      <!-- Menu de Navegação Desktop -->
+      <nav id="site-nav" class="nav-menu" aria-label="Navegação Principal">
+        <ul class="nav-list flex-center">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">Sobre</a></li>
+          <li><a href="#events" class="nav-link">Eventos</a></li>
+          <li><a href="#djs" class="nav-link">DJs</a></li>
+          <li><a href="#menu" class="nav-link">Cardápio</a></li>
+          <li><a href="#services" class="nav-link">Serviços VIP</a></li>
+          <li><a href="#gallery" class="nav-link">Galeria</a></li>
+          <li><a href="#contact" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botões de Ação do Header (Lado a Lado) -->
+      <div class="header-actions flex-center">
+        <a href="/admin" target="_blank" class="btn btn-outline-cyan btn-sm btn-admin-header-pill" title="Painel Administrativo CMS">
+          <i class="fa-solid fa-shield-halved"></i> Admin
+        </a>
+        <a href="#reservation" class="btn btn-primary btn-sm btn-vip-header-pill">
+          <i class="fa-solid fa-crown"></i> Reservar VIP
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-toggle-btn" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu Mobile Off-Canvas -->
+  <div id="mobile-menu-backdrop" class="mobile-backdrop"></div>
+  <aside id="mobile-menu-drawer" class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header flex-between">
+      <a href="#hero" class="site-logo">
+        <span class="logo-sub font-accent text-neon-cyan">Los Angeles</span>
+        <span class="logo-main text-neon-pink">CLUB<span class="logo-dot">.</span></span>
+      </a>
+      <button id="mobile-menu-close" class="drawer-close-btn" aria-label="Fechar Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <nav class="drawer-nav">
+      <ul class="drawer-list">
+        <li><a href="#hero" class="drawer-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#about" class="drawer-link"><i class="fa-solid fa-compass"></i> Sobre a Casa</a></li>
+        <li><a href="#events" class="drawer-link"><i class="fa-solid fa-calendar-days"></i> Programação & Festas</a></li>
+        <li><a href="#djs" class="drawer-link"><i class="fa-solid fa-headphones"></i> DJs Residentes</a></li>
+        <li><a href="#menu" class="drawer-link"><i class="fa-solid fa-martini-glass"></i> Cardápio de Bebidas</a></li>
+        <li><a href="#services" class="drawer-link"><i class="fa-solid fa-champagne-glasses"></i> Camarotes VIP</a></li>
+        <li><a href="#gallery" class="drawer-link"><i class="fa-solid fa-images"></i> Galeria de Fotos</a></li>
+        <li><a href="#contact" class="drawer-link"><i class="fa-solid fa-location-dot"></i> Contato & FAQ</a></li>
+        <li><a href="/admin" target="_blank" class="drawer-link drawer-link-admin"><i class="fa-solid fa-shield-halved"></i> Painel Admin CMS</a></li>
+      </ul>
+    </nav>
+
+    <div class="drawer-footer">
+      <a href="#reservation" class="btn btn-primary btn-full drawer-cta">
+        <i class="fa-solid fa-crown"></i> Reservar Mesa / VIP
+      </a>
+      <div class="drawer-socials flex-center">
+        <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Spotify" class="social-icon"><i class="fa-brands fa-spotify"></i></a>
+        <a href="#" aria-label="SoundCloud" class="social-icon"><i class="fa-brands fa-soundcloud"></i></a>
+        <a href="#" aria-label="WhatsApp" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Corpo Principal da Aplicação -->
+  <main id="main-content">
+    <!-- Seção Hero Principal com Efeitos Visuais -->
+    <section id="hero" class="hero-section">
+      <canvas id="hero-particles-canvas" class="hero-canvas"></canvas>
+      <div class="hero-bg-overlay"></div>
+      
+      <div class="container hero-container text-center">
+        <div class="hero-badge-container">
+          <span class="badge-neon badge-pink"><i class="fa-solid fa-bolt"></i> The #1 Nightclub Experience</span>
+        </div>
+        
+        <p class="hero-tagline font-accent text-neon-cyan">Los Angeles Club</p>
+        <h1 class="hero-title">Light Your <span class="text-neon-pink">Night</span></h1>
+        <div class="section-divider"></div>
+        <p class="hero-subtitle">
+          Sinta a vibração dos melhores DJs internacionais, coquetelaria autoral e um ambiente imersivo com som e lasers de última geração projetado para transformar a sua noite em uma lenda.
+        </p>
+        
+        <!-- Timer de Contagem Regressiva Glassmorphism -->
+        <div class="hero-countdown glass-card">
+          <p class="countdown-label"><i class="fa-solid fa-fire text-neon-pink"></i> Próxima Grande Noite em:</p>
+          <div class="countdown-grid flex-center">
+            <div class="countdown-item">
+              <span class="countdown-number" id="timer-days">02</span>
+              <span class="countdown-text">Dias</span>
+            </div>
+            <span class="countdown-colon">:</span>
+            <div class="countdown-item">
+              <span class="countdown-number" id="timer-hours">14</span>
+              <span class="countdown-text">Horas</span>
+            </div>
+            <span class="countdown-colon">:</span>
+            <div class="countdown-item">
+              <span class="countdown-number" id="timer-minutes">35</span>
+              <span class="countdown-text">Minutos</span>
+            </div>
+            <span class="countdown-colon">:</span>
+            <div class="countdown-item">
+              <span class="countdown-number" id="timer-seconds">50</span>
+              <span class="countdown-text">Segundos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-buttons flex-center">
+          <a href="#events" class="btn btn-cyan">
+            <i class="fa-solid fa-ticket"></i> Ver Ingressos
+          </a>
+          <a href="#reservation" class="btn btn-primary">
+            <i class="fa-solid fa-champagne-glasses"></i> Camarote VIP
+          </a>
+          <a href="#about" class="btn btn-glass">
+            <i class="fa-solid fa-circle-play text-neon-cyan"></i> Conhecer a Casa
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature Highlight Cards (Extraído do Template Oficial) -->
+      <div class="hero-features-bar">
+        <div class="container-fluid">
+          <div class="features-grid">
+            <!-- Card 1: Top DJ -->
+            <a href="#djs" class="feature-card feature-dj">
+              <div class="feature-overlay"></div>
+              <div class="feature-content">
+                <span class="feature-badge"><i class="fa-solid fa-headphones"></i> Resident & Guests</span>
+                <h3 class="feature-title">Top DJ</h3>
+                <p class="feature-subtitle">Top 50 DJs Magazine Lineup</p>
+                <span class="feature-link-text">Ver Lineup <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+
+            <!-- Card 2: Never Close -->
+            <a href="#about" class="feature-card feature-open">
+              <div class="feature-overlay"></div>
+              <div class="feature-content">
+                <span class="feature-badge"><i class="fa-solid fa-moon"></i> Non-Stop Vibe</span>
+                <h3 class="feature-title">Never Close</h3>
+                <p class="feature-subtitle">Open All Night & After Parties</p>
+                <span class="feature-link-text">Ver Experiência <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+
+            <!-- Card 3: Trending Drink -->
+            <a href="#menu" class="feature-card feature-drinks">
+              <div class="feature-overlay"></div>
+              <div class="feature-content">
+                <span class="feature-badge"><i class="fa-solid fa-martini-glass-citrus"></i> Signature Drinks</span>
+                <h3 class="feature-title">Trending Drink</h3>
+                <p class="feature-subtitle">Top Trending Drinks & Bottles</p>
+                <span class="feature-link-text">Ver Cardápio <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Quem Somos / A Experiência Noturna (About) -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Let's Chill Together</span>
+          <h2 class="section-title">Who We Are</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Nascida para redefinir o conceito de entretenimento noturno, a <strong>Los Angeles Club</strong> combina tecnologia de ponta em iluminação laser, sistema acústico 3D de alta pressão e atendimento VIP incomparável em um ambiente sofisticado.
+          </p>
+        </div>
+
+        <!-- Showcase: Chill Sets & Top Trend Music (Split Banner) -->
+        <div class="about-showcase glass-card">
+          <div class="showcase-grid">
+            <!-- Coluna Visual / Imagem da Pista -->
+            <div class="showcase-media">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Los Angeles Club Atmosphere" class="showcase-img">
+              <div class="showcase-media-overlay flex-center">
+                <button class="btn-play-pulse" id="about-play-set-btn" aria-label="Tocar Set Exclusivo">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <span class="pulse-text">Ouvir Live Set</span>
+              </div>
+            </div>
+
+            <!-- Coluna Conteúdo & Playlist Interativa -->
+            <div class="showcase-info">
+              <span class="badge-neon badge-cyan"><i class="fa-solid fa-music"></i> Sound & Lighting Tech</span>
+              <h3 class="showcase-title">Chill Sets & Top Trend Music</h3>
+              <div class="mini-divider"></div>
+              <p class="showcase-text">
+                Uma curadoria sonora sem precedentes. Nossos sistemas de som Funktion-One e engenharia de luz inteligente acompanham cada batida, criando uma atmosfera onde a música é sentida em cada centímetro do seu corpo.
+              </p>
+
+              <!-- Tracklist Selector -->
+              <div class="showcase-playlist">
+                <div class="playlist-item active" data-track="1">
+                  <div class="playlist-icon"><i class="fa-solid fa-volume-high text-neon-cyan"></i></div>
+                  <div class="playlist-details">
+                    <span class="playlist-track-name">Martin Garrix - Live at LA Club Festival</span>
+                    <span class="playlist-meta">EDM / Peak Time • 128 BPM</span>
+                  </div>
+                  <span class="playlist-duration">45:20</span>
+                </div>
+
+                <div class="playlist-item" data-track="2">
+                  <div class="playlist-icon"><i class="fa-solid fa-headphones text-neon-pink"></i></div>
+                  <div class="playlist-details">
+                    <span class="playlist-track-name">Ibiza Sunset Sessions - Deep & Melodic</span>
+                    <span class="playlist-meta">Deep House • 122 BPM</span>
+                  </div>
+                  <span class="playlist-duration">58:14</span>
+                </div>
+
+                <div class="playlist-item" data-track="3">
+                  <div class="playlist-icon"><i class="fa-solid fa-record-vinyl text-neon-cyan"></i></div>
+                  <div class="playlist-details">
+                    <span class="playlist-track-name">Berlin Underground Tech Selection</span>
+                    <span class="playlist-meta">Tech House • 130 BPM</span>
+                  </div>
+                  <span class="playlist-duration">62:00</span>
+                </div>
+              </div>
+
+              <div class="showcase-actions">
+                <a href="#reservation" class="btn btn-cyan btn-sm">
+                  <i class="fa-solid fa-calendar-check"></i> Fazer Reserva
+                </a>
+                <a href="#events" class="btn btn-outline-pink btn-sm">
+                  <i class="fa-solid fa-list-ul"></i> Próximos Sets
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contadores Estatísticos Animados (Stats Grid) -->
+        <div class="stats-grid">
+          <div class="stat-card glass-card text-center">
+            <div class="stat-icon-wrapper">
+              <i class="fa-solid fa-calendar-check text-neon-pink"></i>
+            </div>
+            <span class="stat-number" data-target="500">0</span><span class="stat-plus text-neon-pink">+</span>
+            <p class="stat-title">Noites & Festas Épicas</p>
+            <p class="stat-desc">Eventos com sold out constante</p>
+          </div>
+
+          <div class="stat-card glass-card text-center">
+            <div class="stat-icon-wrapper">
+              <i class="fa-solid fa-compact-disc text-neon-cyan"></i>
+            </div>
+            <span class="stat-number" data-target="120">0</span><span class="stat-plus text-neon-cyan">+</span>
+            <p class="stat-title">DJs Internacionais</p>
+            <p class="stat-desc">Grandes nomes da cena global</p>
+          </div>
+
+          <div class="stat-card glass-card text-center">
+            <div class="stat-icon-wrapper">
+              <i class="fa-solid fa-users text-neon-pink"></i>
+            </div>
+            <span class="stat-number" data-target="50">0</span><span class="stat-plus text-neon-pink">k+</span>
+            <p class="stat-title">Público Fiel</p>
+            <p class="stat-desc">Vibração contagiante a cada noite</p>
+          </div>
+
+          <div class="stat-card glass-card text-center">
+            <div class="stat-icon-wrapper">
+              <i class="fa-solid fa-award text-neon-cyan"></i>
+            </div>
+            <span class="stat-number" data-target="15">0</span><span class="stat-plus text-neon-cyan">+</span>
+            <p class="stat-title">Anos de Liderança</p>
+            <p class="stat-desc">Referência máxima em nightlife</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Seção de Programação & Eventos (Club Events) -->
+    <section id="events" class="events-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Everyday Shuffling</span>
+          <h2 class="section-title">Club Events & Parties</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Confira as próximas noites inesquecíveis da Los Angeles Club. Garanta seu ingresso antecipado com desconto ou reserve camarotes exclusivos para você e seus amigos.
+          </p>
+        </div>
+
+        <!-- Filtros de Categoria de Eventos -->
+        <div class="events-filter-container flex-center">
+          <button class="filter-btn active" data-filter="all">Todos os Eventos</button>
+          <button class="filter-btn" data-filter="edm"><i class="fa-solid fa-bolt"></i> EDM & Festival</button>
+          <button class="filter-btn" data-filter="house"><i class="fa-solid fa-headphones"></i> Deep House & Tech</button>
+          <button class="filter-btn" data-filter="hiphop"><i class="fa-solid fa-microphone"></i> Hip-Hop & Trap</button>
+          <button class="filter-btn" data-filter="vip"><i class="fa-solid fa-crown"></i> Sunset & VIP Gold</button>
+        </div>
+
+        <!-- Grid de Eventos -->
+        <div class="events-grid" id="events-container">
+          <!-- Evento 1: EDM Festival -->
+          <div class="event-card glass-card" data-category="edm">
+            <div class="event-media">
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Neon Paradise Festival" class="event-img">
+              <div class="event-date-badge">
+                <span class="date-day">26</span>
+                <span class="date-month">SET</span>
+              </div>
+              <span class="event-status-badge badge-pink"><i class="fa-solid fa-fire"></i> Últimos Ingressos</span>
+            </div>
+            <div class="event-body">
+              <div class="event-meta flex-between">
+                <span class="event-genre text-neon-cyan"><i class="fa-solid fa-bolt"></i> EDM / Progressive</span>
+                <span class="event-time"><i class="fa-solid fa-clock"></i> 23:00 - 06:00</span>
+              </div>
+              <h3 class="event-title">Neon Paradise • Martin Garrix & Friends</h3>
+              <p class="event-lineup"><i class="fa-solid fa-music"></i> <strong>Lineup:</strong> Martin Garrix, Lucas & Steve, Resident DJs</p>
+              <div class="event-footer flex-between">
+                <div class="event-price">
+                  <span class="price-label">A partir de</span>
+                  <span class="price-value text-neon-pink">R$ 90,00</span>
+                </div>
+                <button class="btn btn-cyan btn-sm btn-buy-ticket" data-id="1" data-name="Neon Paradise • Martin Garrix" data-price="90" data-date="26 de Setembro • 23h">
+                  <i class="fa-solid fa-ticket"></i> Ingressos
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evento 2: Deep House Sunset -->
+          <div class="event-card glass-card" data-category="house">
+            <div class="event-media">
+              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Ibiza Sensations" class="event-img">
+              <div class="event-date-badge">
+                <span class="date-day">27</span>
+                <span class="date-month">SET</span>
+              </div>
+              <span class="event-status-badge badge-cyan"><i class="fa-solid fa-star"></i> Open Bar VIP</span>
+            </div>
+            <div class="event-body">
+              <div class="event-meta flex-between">
+                <span class="event-genre text-neon-cyan"><i class="fa-solid fa-headphones"></i> Deep & Melodic House</span>
+                <span class="event-time"><i class="fa-solid fa-clock"></i> 22:00 - 05:00</span>
+              </div>
+              <h3 class="event-title">Ibiza Sensations • Sunset to Sunrise</h3>
+              <p class="event-lineup"><i class="fa-solid fa-music"></i> <strong>Lineup:</strong> Nora En Pure, Vintage Culture Set, DJ Alexia</p>
+              <div class="event-footer flex-between">
+                <div class="event-price">
+                  <span class="price-label">A partir de</span>
+                  <span class="price-value text-neon-pink">R$ 110,00</span>
+                </div>
+                <button class="btn btn-cyan btn-sm btn-buy-ticket" data-id="2" data-name="Ibiza Sensations • Sunset to Sunrise" data-price="110" data-date="27 de Setembro • 22h">
+                  <i class="fa-solid fa-ticket"></i> Ingressos
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evento 3: Hip-Hop & Trap Night -->
+          <div class="event-card glass-card" data-category="hiphop">
+            <div class="event-media">
+              <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80" alt="Urban Legends" class="event-img">
+              <div class="event-date-badge">
+                <span class="date-day">03</span>
+                <span class="date-month">OUT</span>
+              </div>
+              <span class="event-status-badge badge-pink"><i class="fa-solid fa-fire-flame-curved"></i> Lote 2</span>
+            </div>
+            <div class="event-body">
+              <div class="event-meta flex-between">
+                <span class="event-genre text-neon-cyan"><i class="fa-solid fa-microphone"></i> Hip-Hop / Trap / R&B</span>
+                <span class="event-time"><i class="fa-solid fa-clock"></i> 23:00 - 06:00</span>
+              </div>
+              <h3 class="event-title">Urban Legends • LA Trap & Beats</h3>
+              <p class="event-lineup"><i class="fa-solid fa-music"></i> <strong>Lineup:</strong> DJ Snake Guest Set, Metro Special, MC Special Live</p>
+              <div class="event-footer flex-between">
+                <div class="event-price">
+                  <span class="price-label">A partir de</span>
+                  <span class="price-value text-neon-pink">R$ 80,00</span>
+                </div>
+                <button class="btn btn-cyan btn-sm btn-buy-ticket" data-id="3" data-name="Urban Legends • LA Trap & Beats" data-price="80" data-date="03 de Outubro • 23h">
+                  <i class="fa-solid fa-ticket"></i> Ingressos
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evento 4: Techno Pulse -->
+          <div class="event-card glass-card" data-category="house">
+            <div class="event-media">
+              <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80" alt="Techno Pulse" class="event-img">
+              <div class="event-date-badge">
+                <span class="date-day">04</span>
+                <span class="date-month">OUT</span>
+              </div>
+              <span class="event-status-badge badge-cyan"><i class="fa-solid fa-compact-disc"></i> 3D Laser Show</span>
+            </div>
+            <div class="event-body">
+              <div class="event-meta flex-between">
+                <span class="event-genre text-neon-cyan"><i class="fa-solid fa-wave-square"></i> Peak Techno / Industrial</span>
+                <span class="event-time"><i class="fa-solid fa-clock"></i> 23:30 - 07:00</span>
+              </div>
+              <h3 class="event-title">Techno Pulse • Berlin Underground</h3>
+              <p class="event-lineup"><i class="fa-solid fa-music"></i> <strong>Lineup:</strong> Charlotte de Witte Tribute, DJ Marcus V, Techno Live</p>
+              <div class="event-footer flex-between">
+                <div class="event-price">
+                  <span class="price-label">A partir de</span>
+                  <span class="price-value text-neon-pink">R$ 100,00</span>
+                </div>
+                <button class="btn btn-cyan btn-sm btn-buy-ticket" data-id="4" data-name="Techno Pulse • Berlin Underground" data-price="100" data-date="04 de Outubro • 23:30h">
+                  <i class="fa-solid fa-ticket"></i> Ingressos
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evento 5: Sunset & VIP Gold -->
+          <div class="event-card glass-card" data-category="vip">
+            <div class="event-media">
+              <img src="https://images.unsplash.com/photo-1545128485-c400e7702796?auto=format&fit=crop&w=800&q=80" alt="Black & Gold VIP Party" class="event-img">
+              <div class="event-date-badge">
+                <span class="date-day">10</span>
+                <span class="date-month">OUT</span>
+              </div>
+              <span class="event-status-badge badge-pink"><i class="fa-solid fa-crown"></i> Gala VIP Gold</span>
+            </div>
+            <div class="event-body">
+              <div class="event-meta flex-between">
+                <span class="event-genre text-neon-cyan"><i class="fa-solid fa-champagne-glasses"></i> All Inclusive VIP</span>
+                <span class="event-time"><i class="fa-solid fa-clock"></i> 21:00 - 06:00</span>
+              </div>
+              <h3 class="event-title">Black & Gold • 15 Years Anniversary Gala</h3>
+              <p class="event-lineup"><i class="fa-solid fa-music"></i> <strong>Lineup:</strong> Orquestra Eletrônica, DJs Internacionais, Open Champagne</p>
+              <div class="event-footer flex-between">
+                <div class="event-price">
+                  <span class="price-label">A partir de</span>
+                  <span class="price-value text-neon-pink">R$ 220,00</span>
+                </div>
+                <button class="btn btn-cyan btn-sm btn-buy-ticket" data-id="5" data-name="Black & Gold • 15 Years Anniversary Gala" data-price="220" data-date="10 de Outubro • 21h">
+                  <i class="fa-solid fa-ticket"></i> Ingressos
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evento 6: EDM Bass Nation -->
+          <div class="event-card glass-card" data-category="edm">
+            <div class="event-media">
+              <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80" alt="Bass Nation" class="event-img">
+              <div class="event-date-badge">
+                <span class="date-day">11</span>
+                <span class="date-month">OUT</span>
+              </div>
+              <span class="event-status-badge badge-cyan"><i class="fa-solid fa-fire"></i> Lote 1</span>
+            </div>
+            <div class="event-body">
+              <div class="event-meta flex-between">
+                <span class="event-genre text-neon-cyan"><i class="fa-solid fa-bolt"></i> Bass House / Future Rave</span>
+                <span class="event-time"><i class="fa-solid fa-clock"></i> 23:00 - 06:00</span>
+              </div>
+              <h3 class="event-title">Bass Nation • Future Rave & Heavy Drops</h3>
+              <p class="event-lineup"><i class="fa-solid fa-music"></i> <strong>Lineup:</strong> David Guetta Style Set, DJ Hunter, Laser Experience</p>
+              <div class="event-footer flex-between">
+                <div class="event-price">
+                  <span class="price-label">A partir de</span>
+                  <span class="price-value text-neon-pink">R$ 85,00</span>
+                </div>
+                <button class="btn btn-cyan btn-sm btn-buy-ticket" data-id="6" data-name="Bass Nation • Future Rave & Heavy Drops" data-price="85" data-date="11 de Outubro • 23h">
+                  <i class="fa-solid fa-ticket"></i> Ingressos
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Interativo de Compra de Ingressos -->
+    <div id="ticket-modal" class="modal-backdrop" aria-hidden="true">
+      <div class="modal-card glass-card">
+        <div class="modal-header flex-between">
+          <div class="modal-title-group">
+            <span class="badge-neon badge-pink"><i class="fa-solid fa-ticket"></i> Ingressos Oficiais</span>
+            <h3 class="modal-event-name" id="modal-event-name">Nome do Evento</h3>
+            <span class="modal-event-date text-neon-cyan" id="modal-event-date">Data do Evento</span>
+          </div>
+          <button id="modal-close-btn" class="modal-close" aria-label="Fechar Modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="ticket-form" class="modal-form">
+          <!-- Seleção do Tipo de Ingresso -->
+          <div class="form-group">
+            <label class="form-label">Selecione o Setor:</label>
+            <div class="ticket-types-grid">
+              <label class="ticket-type-option">
+                <input type="radio" name="ticket_tier" value="pista" checked>
+                <div class="tier-card">
+                  <span class="tier-name"><i class="fa-solid fa-music"></i> Pista Premium</span>
+                  <span class="tier-price" id="tier-price-pista">R$ 90,00</span>
+                </div>
+              </label>
+
+              <label class="ticket-type-option">
+                <input type="radio" name="ticket_tier" value="vip">
+                <div class="tier-card">
+                  <span class="tier-name"><i class="fa-solid fa-star text-neon-cyan"></i> Área VIP Mezanino</span>
+                  <span class="tier-price" id="tier-price-vip">R$ 180,00</span>
+                </div>
+              </label>
+
+              <label class="ticket-type-option">
+                <input type="radio" name="ticket_tier" value="camarote">
+                <div class="tier-card">
+                  <span class="tier-name"><i class="fa-solid fa-crown text-neon-pink"></i> Camarote 10 Pessoas</span>
+                  <span class="tier-price" id="tier-price-camarote">R$ 1.800,00</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Quantidade e Totalizador -->
+          <div class="form-row flex-between">
+            <div class="form-group">
+              <label class="form-label">Quantidade de Ingressos:</label>
+              <div class="quantity-control flex-center">
+                <button type="button" id="qty-minus" class="qty-btn" aria-label="Diminuir">-</button>
+                <input type="number" id="ticket-quantity" value="1" min="1" max="10" readonly>
+                <button type="button" id="qty-plus" class="qty-btn" aria-label="Aumentar">+</button>
+              </div>
+            </div>
+
+            <div class="modal-total-box text-right">
+              <span class="total-label">Total a Pagar:</span>
+              <span class="total-amount text-neon-pink" id="ticket-total-amount">R$ 90,00</span>
+            </div>
+          </div>
+
+          <!-- Dados do Comprador -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="buyer-name" class="form-label">Nome Completo:</label>
+              <input type="text" id="buyer-name" class="form-input" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label for="buyer-email" class="form-label">E-mail para Recebimento:</label>
+              <input type="email" id="buyer-email" class="form-input" placeholder="seuemail@exemplo.com" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="buyer-phone" class="form-label">WhatsApp:</label>
+              <input type="tel" id="buyer-phone" class="form-input" placeholder="(11) 99999-9999" required>
+            </div>
+            <div class="form-group">
+              <label for="buyer-payment" class="form-label">Forma de Pagamento:</label>
+              <select id="buyer-payment" class="form-input">
+                <option value="pix">PIX Instantâneo (Com Desconto 5%)</option>
+                <option value="credit">Cartão de Crédito (Até 12x)</option>
+                <option value="apple">Apple Pay / Google Pay</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full modal-submit-btn">
+            <i class="fa-solid fa-lock"></i> Finalizar Compra Segura
+          </button>
+        </form>
+
+        <!-- Feedback de Sucesso -->
+        <div id="ticket-success-message" class="modal-success-box text-center" style="display: none;">
+          <div class="success-icon-wrap flex-center">
+            <i class="fa-solid fa-circle-check text-neon-cyan"></i>
+          </div>
+          <h3 class="success-title">Ingresso Garantido com Sucesso!</h3>
+          <p class="success-desc">Enviamos o voucher e o QR Code de entrada para o seu e-mail e WhatsApp. Apresente-o na portaria VIP.</p>
+          <button id="modal-success-close" class="btn btn-cyan btn-sm">Fechar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Seção de DJs Residentes & Convidados (DJ Team) -->
+    <section id="djs" class="djs-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Vibe Makers</span>
+          <h2 class="section-title">DJ Team & Residents</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Os maestros que comandam nossas cabines de som. Artistas premiados internacionalmente e talentos consagrados que transformam cada minuto da sua noite em puro êxtase.
+          </p>
+        </div>
+
+        <!-- Grid de DJs -->
+        <div class="djs-grid">
+          <!-- DJ 1 -->
+          <div class="dj-card glass-card">
+            <div class="dj-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&w=700&q=80" alt="DJ Alexia Frost" class="dj-img">
+              <div class="dj-overlay flex-center">
+                <button class="dj-play-btn" data-track="2" aria-label="Ouvir Set de Alexia Frost">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+              </div>
+              <span class="dj-role-badge badge-cyan">Residente Principal</span>
+            </div>
+            <div class="dj-info text-center">
+              <span class="dj-genre text-neon-pink">Melodic & Deep House</span>
+              <h3 class="dj-name">Alexia Frost</h3>
+              <p class="dj-bio">Residente das quintas e sextas, trazendo sonoridades refinadas de festivais europeus e Ibiza.</p>
+              <div class="dj-socials flex-center">
+                <a href="#" aria-label="SoundCloud" class="dj-social-link"><i class="fa-brands fa-soundcloud"></i></a>
+                <a href="#" aria-label="Spotify" class="dj-social-link"><i class="fa-brands fa-spotify"></i></a>
+                <a href="#" aria-label="Instagram" class="dj-social-link"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- DJ 2 -->
+          <div class="dj-card glass-card">
+            <div class="dj-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=700&q=80" alt="DJ Marcus Vortex" class="dj-img">
+              <div class="dj-overlay flex-center">
+                <button class="dj-play-btn" data-track="1" aria-label="Ouvir Set de Marcus Vortex">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+              </div>
+              <span class="dj-role-badge badge-pink">Guest Star</span>
+            </div>
+            <div class="dj-info text-center">
+              <span class="dj-genre text-neon-cyan">EDM & Peak Time Big Room</span>
+              <h3 class="dj-name">Marcus Vortex</h3>
+              <p class="dj-bio">Comandante das grandes madrugadas de sábado com drops explosivos, pirotecnia e remixes exclusivos.</p>
+              <div class="dj-socials flex-center">
+                <a href="#" aria-label="SoundCloud" class="dj-social-link"><i class="fa-brands fa-soundcloud"></i></a>
+                <a href="#" aria-label="Spotify" class="dj-social-link"><i class="fa-brands fa-spotify"></i></a>
+                <a href="#" aria-label="Instagram" class="dj-social-link"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- DJ 3 -->
+          <div class="dj-card glass-card">
+            <div class="dj-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=700&q=80" alt="DJ Kendrick Blaze" class="dj-img">
+              <div class="dj-overlay flex-center">
+                <button class="dj-play-btn" data-track="3" aria-label="Ouvir Set de Kendrick Blaze">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+              </div>
+              <span class="dj-role-badge badge-cyan">Urban Specialist</span>
+            </div>
+            <div class="dj-info text-center">
+              <span class="dj-genre text-neon-pink">Hip-Hop, Trap & R&B</span>
+              <h3 class="dj-name">Kendrick Blaze</h3>
+              <p class="dj-bio">Especialista na cena urbana de Los Angeles, unindo os maiores clássicos com os lançamentos mais quentes.</p>
+              <div class="dj-socials flex-center">
+                <a href="#" aria-label="SoundCloud" class="dj-social-link"><i class="fa-brands fa-soundcloud"></i></a>
+                <a href="#" aria-label="Spotify" class="dj-social-link"><i class="fa-brands fa-spotify"></i></a>
+                <a href="#" aria-label="Instagram" class="dj-social-link"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- DJ 4 -->
+          <div class="dj-card glass-card">
+            <div class="dj-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=700&q=80" alt="DJ Luna Ray" class="dj-img">
+              <div class="dj-overlay flex-center">
+                <button class="dj-play-btn" data-track="2" aria-label="Ouvir Set de Luna Ray">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+              </div>
+              <span class="dj-role-badge badge-pink">Resident Sunset</span>
+            </div>
+            <div class="dj-info text-center">
+              <span class="dj-genre text-neon-cyan">Afro House & Tech House</span>
+              <h3 class="dj-name">Luna Ray</h3>
+              <p class="dj-bio">Batidas envolventes com percussão orgânica e sintetizadores futuristas para abrir a noite com maestria.</p>
+              <div class="dj-socials flex-center">
+                <a href="#" aria-label="SoundCloud" class="dj-social-link"><i class="fa-brands fa-soundcloud"></i></a>
+                <a href="#" aria-label="Spotify" class="dj-social-link"><i class="fa-brands fa-spotify"></i></a>
+                <a href="#" aria-label="Instagram" class="dj-social-link"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Seção de Cardápio Interativo (Drinks & Menu) -->
+    <section id="menu" class="menu-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Top Trending Drinks</span>
+          <h2 class="section-title">Bar & Lounge Menu</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Mixologia autoral, destilados premium e alta gastronomia noturna. Desfrute de coquetéis assinados por bartenders premiados e garrafas exclusivas com atendimento VIP.
+          </p>
+        </div>
+
+        <!-- Abas de Categorias do Cardápio -->
+        <div class="menu-tabs-container flex-center">
+          <button class="menu-tab-btn active" data-tab="cocktails">
+            <i class="fa-solid fa-martini-glass-citrus"></i> Coquetéis Autorais
+          </button>
+          <button class="menu-tab-btn" data-tab="bottles">
+            <i class="fa-solid fa-wine-bottle"></i> Garrafas & Champagnes
+          </button>
+          <button class="menu-tab-btn" data-tab="combos">
+            <i class="fa-solid fa-fire-flame-curved"></i> Shots & Combos
+          </button>
+          <button class="menu-tab-btn" data-tab="bites">
+            <i class="fa-solid fa-burger"></i> Gastronomia Noturna
+          </button>
+        </div>
+
+        <!-- Conteúdo das Abas do Cardápio -->
+        <div class="menu-content-container">
+          <!-- Aba 1: Coquetéis Autorais -->
+          <div class="menu-tab-pane active" id="tab-cocktails">
+            <div class="menu-items-grid">
+              <!-- Item 1 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Neon Cyberpunk Cocktail" class="menu-img">
+                  <span class="menu-badge badge-pink">Signature</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Neon Cyberpunk</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 48,00</span>
+                  </div>
+                  <p class="menu-item-desc">Gin infusionado com flor de lótus, curaçau blue, xarope de hibisco artesanal, suco de limão siciliano e glitter comestível neon.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-glass-water text-neon-cyan"></i> 350ml • Teórico Alcoólico Médio</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Sunset in LA" class="menu-img">
+                  <span class="menu-badge badge-cyan">Top Trending</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Sunset in LA</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 45,00</span>
+                  </div>
+                  <p class="menu-item-desc">Vodka premium, purê de maracujá fresco, licor de pêssego, espuma cítrica de gengibre e spray aromático de tangerina.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-glass-water text-neon-cyan"></i> 380ml • Frutado & Refrescante</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?auto=format&fit=crop&w=600&q=80" alt="Pink Velvet Martini" class="menu-img">
+                  <span class="menu-badge badge-pink">Favorito Delas</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Pink Velvet Martini</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 52,00</span>
+                  </div>
+                  <p class="menu-item-desc">Gin Pink Gordon's, vermute dry, redução de framboesas silvestres, toque de limão cravo e borda de açúcar de algodão doce.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-glass-water text-neon-cyan"></i> 250ml • Doce & Equilibrado</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=600&q=80" alt="Smoked Passion Mezcal" class="menu-img">
+                  <span class="menu-badge badge-cyan">Defumado Exclusivo</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Smoked Passion Mezcal</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 56,00</span>
+                  </div>
+                  <p class="menu-item-desc">Mezcal artesanal 100% agave, xarope de agave azul, suco de grapefruit, fumaça de canela tostada na mesa e sal negro do Himalaia.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-glass-water text-neon-cyan"></i> 300ml • Intenso & Complexo</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aba 2: Garrafas & Champagnes -->
+          <div class="menu-tab-pane" id="tab-bottles">
+            <div class="menu-items-grid">
+              <!-- Garrafa 1 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1569919659476-f0852f6834b7?auto=format&fit=crop&w=600&q=80" alt="Dom Perignon" class="menu-img">
+                  <span class="menu-badge badge-pink">VIP Gold</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Dom Pérignon Luminous Vintage</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 2.450,00</span>
+                  </div>
+                  <p class="menu-item-desc">Champagne francês clássico com garrafa de rótulo iluminado por LED. Servido com balde iluminado e 6 taças de cristal.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-wine-bottle text-neon-cyan"></i> 750ml • Champagne Brut</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar Garrafa</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Garrafa 2 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?auto=format&fit=crop&w=600&q=80" alt="Grey Goose Vodka" class="menu-img">
+                  <span class="menu-badge badge-cyan">Mais Pedido</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Grey Goose Original 1L</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 590,00</span>
+                  </div>
+                  <p class="menu-item-desc">Vodka super premium francesa produzida com trigo de inverno. Acompanha 6 energéticos Red Bull ou 6 sucos à escolha.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-wine-bottle text-neon-cyan"></i> 1000ml • Destilado Francês</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar Garrafa</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Garrafa 3 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&w=600&q=80" alt="Gin Hendricks" class="menu-img">
+                  <span class="menu-badge badge-cyan">Botanicals</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Gin Hendrick's Escocês</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 620,00</span>
+                  </div>
+                  <p class="menu-item-desc">Gin destilado na Escócia com infusão de pétalas de rosa damascena e pepino fresco. Acompanha 6 tônicas premium Fever Tree e especiarias.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-wine-bottle text-neon-cyan"></i> 750ml • Gin Premium</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar Garrafa</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Garrafa 4 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Veuve Clicquot" class="menu-img">
+                  <span class="menu-badge badge-pink">Clássico</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Veuve Clicquot Ponsardin Brut</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 980,00</span>
+                  </div>
+                  <p class="menu-item-desc">Tradicional champagne francês com borbulhas finas e notas frutadas. Servido com gelo, taças de cristal e bengala pirotécnica na mesa.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-wine-bottle text-neon-cyan"></i> 750ml • Brut Reims</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar Garrafa</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aba 3: Shots & Combos -->
+          <div class="menu-tab-pane" id="tab-combos">
+            <div class="menu-items-grid">
+              <!-- Combo 1 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=600&q=80" alt="Combo Absolut" class="menu-img">
+                  <span class="menu-badge badge-pink">Top Combo</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Combo Absolut Night</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 490,00</span>
+                  </div>
+                  <p class="menu-item-desc">1 Garrafa Vodka Absolut 1L + 6 Latas de Red Bull Energy Drink (Tradicional, Sugar Free ou Tropical) + Gelo de Coco.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-bolt text-neon-cyan"></i> Serve até 6 Pessoas</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Reservar Combo</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Combo 2 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=600&q=80" alt="Shots de Tequila" class="menu-img">
+                  <span class="menu-badge badge-cyan">Régua 6 Shots</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Régua Tequila José Cuervo Gold</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 130,00</span>
+                  </div>
+                  <p class="menu-item-desc">6 Doses de Tequila Cuervo Gold servidas em régua de madeira iluminada com canela, fatias de laranja e sal especial.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-fire text-neon-pink"></i> 6 Shots x 50ml</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Pedir Régua</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aba 4: Gastronomia Noturna -->
+          <div class="menu-tab-pane" id="tab-bites">
+            <div class="menu-items-grid">
+              <!-- Petisco 1 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Mini Burgers Wagyu" class="menu-img">
+                  <span class="menu-badge badge-pink">Chef Special</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Mini Burgers de Wagyu Trufado (4 un)</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 68,00</span>
+                  </div>
+                  <p class="menu-item-desc">4 mini hambúrgueres de carne nobre Wagyu, queijo cheddar inglês derretido, cebola caramelizada no uísque e maionese trufada no pão brioche.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-utensils text-neon-cyan"></i> Porção para Compartilhar</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Adicionar</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Petisco 2 -->
+              <div class="menu-item-card glass-card">
+                <div class="menu-item-media">
+                  <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80" alt="Coxinhas de Costela" class="menu-img">
+                  <span class="menu-badge badge-cyan">Crocante</span>
+                </div>
+                <div class="menu-item-body">
+                  <div class="menu-item-header flex-between">
+                    <h3 class="menu-item-title">Coxinhas de Costela Defumada (6 un)</h3>
+                    <span class="menu-item-price text-neon-pink">R$ 54,00</span>
+                  </div>
+                  <p class="menu-item-desc">Massa crocante sem farinha recheada com costela desfiada desmanchando e cream cheese. Acompanha geleia picante de pimenta biquinho.</p>
+                  <div class="menu-item-footer flex-between">
+                    <span class="menu-item-volume"><i class="fa-solid fa-utensils text-neon-cyan"></i> 6 Unidades Crocantes</span>
+                    <a href="#reservation" class="btn-menu-order text-neon-cyan"><i class="fa-solid fa-plus"></i> Adicionar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Seção de Serviços VIP & Camarotes Exclusivos (Services) -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Premium Experience</span>
+          <h2 class="section-title">Exclusive VIP Services</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Elevamos a sua noite ao mais alto padrão de exclusividade. Desfrute de atendimento personalizado, infraestrutura impecável e benefícios pensados para momentos inesquecíveis.
+          </p>
+        </div>
+
+        <!-- Grid de Serviços VIP -->
+        <div class="services-grid">
+          <!-- Serviço 1: Camarotes VIP -->
+          <div class="service-card glass-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-crown text-neon-pink"></i>
+            </div>
+            <h3 class="service-title">Camarotes & Lounges Privativos</h3>
+            <p class="service-desc">
+              Espaços elevados com visão panorâmica privilegiada do palco principal, sofás de veludo, balde iluminado com bengalas pirotécnicas e garçom exclusivo durante toda a festa.
+            </p>
+            <ul class="service-checklist">
+              <li><i class="fa-solid fa-circle-check text-neon-cyan"></i> Entrada expressa sem filas</li>
+              <li><i class="fa-solid fa-circle-check text-neon-cyan"></i> Garçom e segurança dedicados</li>
+              <li><i class="fa-solid fa-circle-check text-neon-cyan"></i> Atendimento com garrafas premium</li>
+            </ul>
+          </div>
+
+          <!-- Serviço 2: Aniversários -->
+          <div class="service-card glass-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-cake-candles text-neon-cyan"></i>
+            </div>
+            <h3 class="service-title">Comemoração de Aniversário</h3>
+            <p class="service-desc">
+              Comemore sua nova idade com glamour. Benefícios especiais para o aniversariante e lista de convidados com descontos automáticos e cortesias exclusivas.
+            </p>
+            <ul class="service-checklist">
+              <li><i class="fa-solid fa-circle-check text-neon-pink"></i> Entrada VIP Free para o aniversariante + 1</li>
+              <li><i class="fa-solid fa-circle-check text-neon-pink"></i> 1 Garrafa de Espumante Chandon de presente</li>
+              <li><i class="fa-solid fa-circle-check text-neon-pink"></i> Flyer digital personalizado para convites</li>
+            </ul>
+          </div>
+
+          <!-- Serviço 3: Corporativo -->
+          <div class="service-card glass-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-building text-neon-pink"></i>
+            </div>
+            <h3 class="service-title">Eventos Privados & Corporativos</h3>
+            <p class="service-desc">
+              Locação parcial ou total da casa noturna para confraternizações empresariais, lançamentos de produtos, desfiles de moda e celebrações fechadas.
+            </p>
+            <ul class="service-checklist">
+              <li><i class="fa-solid fa-circle-check text-neon-cyan"></i> Capacidade flexível até 1.200 pessoas</li>
+              <li><i class="fa-solid fa-circle-check text-neon-cyan"></i> Equipamentos completos de som, luz e telão</li>
+              <li><i class="fa-solid fa-circle-check text-neon-cyan"></i> Gastronomia e open bar sob medida</li>
+            </ul>
+          </div>
+
+          <!-- Serviço 4: Valet & Segurança -->
+          <div class="service-card glass-card">
+            <div class="service-icon-wrap">
+              <i class="fa-solid fa-car text-neon-cyan"></i>
+            </div>
+            <h3 class="service-title">Valet Parking & Segurança Executiva</h3>
+            <p class="service-desc">
+              Comodidade e tranquilidade do início ao fim. Estacionamento com manobrista privativo segurado na porta e equipe de segurança treinada para discrição e suporte total.
+            </p>
+            <ul class="service-checklist">
+              <li><i class="fa-solid fa-circle-check text-neon-pink"></i> Manobrista privativo com seguro total</li>
+              <li><i class="fa-solid fa-circle-check text-neon-pink"></i> Monitoramento 24h por câmeras</li>
+              <li><i class="fa-solid fa-circle-check text-neon-pink"></i> Acompanhamento até o veículo</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Comparativo de Setores da Casa -->
+        <div class="tiers-comparison-box">
+          <div class="text-center tiers-heading">
+            <span class="badge-neon badge-pink"><i class="fa-solid fa-layer-group"></i> Escolha Sua Experiência</span>
+            <h3 class="tiers-title">Setores da Casa</h3>
+          </div>
+
+          <div class="tiers-grid">
+            <!-- Setor 1: Pista Premium -->
+            <div class="tier-box glass-card">
+              <div class="tier-header">
+                <span class="tier-tag">Acesso Geral</span>
+                <h4 class="tier-name-large">Pista Premium</h4>
+                <div class="tier-pricing">
+                  <span class="tier-val text-neon-cyan">R$ 80 - R$ 120</span>
+                  <span class="tier-per">/ por pessoa</span>
+                </div>
+              </div>
+              <ul class="tier-features">
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> Acesso total à pista principal</li>
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> Visão frontal do palco dos DJs</li>
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> 2 Bares de alta velocidade na pista</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Entrada sem fila</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Mesa ou sofás privativos</li>
+              </ul>
+              <a href="#events" class="btn btn-outline-cyan btn-full">Comprar Pista</a>
+            </div>
+
+            <!-- Setor 2: Mezanino VIP -->
+            <div class="tier-box glass-card popular">
+              <div class="popular-ribbon">Mais Escolhido</div>
+              <div class="tier-header">
+                <span class="tier-tag">Experiência VIP</span>
+                <h4 class="tier-name-large">Mezanino VIP</h4>
+                <div class="tier-pricing">
+                  <span class="tier-val text-neon-pink">R$ 160 - R$ 220</span>
+                  <span class="tier-per">/ por pessoa</span>
+                </div>
+              </div>
+              <ul class="tier-features">
+                <li><i class="fa-solid fa-check text-neon-pink"></i> Fila prioritária na entrada</li>
+                <li><i class="fa-solid fa-check text-neon-pink"></i> Vista panorâmica do 2º piso</li>
+                <li><i class="fa-solid fa-check text-neon-pink"></i> Bar exclusivo com coquetelaria autoral</li>
+                <li><i class="fa-solid fa-check text-neon-pink"></i> Banheiros privativos climatizados</li>
+                <li class="disabled"><i class="fa-solid fa-xmark"></i> Consumação de garrafa inclusa</li>
+              </ul>
+              <a href="#events" class="btn btn-primary btn-full">Garantir VIP</a>
+            </div>
+
+            <!-- Setor 3: Camarote Black & Gold -->
+            <div class="tier-box glass-card">
+              <div class="tier-header">
+                <span class="tier-tag">Ultimate Luxury</span>
+                <h4 class="tier-name-large">Camarote Black & Gold</h4>
+                <div class="tier-pricing">
+                  <span class="tier-val text-neon-cyan">R$ 2.000 - R$ 3.500</span>
+                  <span class="tier-per">/ grupo até 12 pessoas</span>
+                </div>
+              </div>
+              <ul class="tier-features">
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> Lounge privativo com sofás de couro</li>
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> R$ 1.500 revertido em consumação de garrafas</li>
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> Garçom e segurança dedicados</li>
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> Balde de LED com bengalas de fogo</li>
+                <li><i class="fa-solid fa-check text-neon-cyan"></i> Acesso aos bastidores e palco dos DJs</li>
+              </ul>
+              <a href="#reservation" class="btn btn-cyan btn-full">Reservar Camarote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Seção de Reserva de Mesas & Camarotes (Reservation) -->
+    <section id="reservation" class="reservation-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Book Your VIP Experience</span>
+          <h2 class="section-title">Table & Lounge Reservation</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Garanta sua mesa bistrô, lounge privativo ou camarote de luxo com antecedência. Aproveite entrada prioritária sem filas e atendimento com garçom exclusivo.
+          </p>
+        </div>
+
+        <div class="reservation-wrapper glass-card">
+          <form id="reservation-form" class="reservation-form">
+            <div class="reservation-grid">
+              <!-- Coluna 1: Escolha do Setor e Data -->
+              <div class="reservation-col-left">
+                <h3 class="form-section-title"><i class="fa-solid fa-1 text-neon-pink"></i> Escolha o Setor</h3>
+                
+                <div class="sector-options-grid">
+                  <!-- Setor 1: Bistrô -->
+                  <label class="sector-option-card">
+                    <input type="radio" name="res_sector" value="bistro" data-name="Mesa Bistrô VIP" data-price="400" data-capacity="4 Pessoas" checked>
+                    <div class="sector-card-inner">
+                      <div class="sector-card-icon"><i class="fa-solid fa-martini-glass text-neon-cyan"></i></div>
+                      <div class="sector-card-text">
+                        <span class="sector-name">Mesa Bistrô VIP</span>
+                        <span class="sector-capacity">Até 4 Pessoas • R$ 400 consumíveis</span>
+                      </div>
+                      <span class="sector-badge badge-cyan">Popular</span>
+                    </div>
+                  </label>
+
+                  <!-- Setor 2: Lounge Mezanino -->
+                  <label class="sector-option-card">
+                    <input type="radio" name="res_sector" value="lounge" data-name="Lounge Mezanino" data-price="1000" data-capacity="6 a 8 Pessoas">
+                    <div class="sector-card-inner">
+                      <div class="sector-card-icon"><i class="fa-solid fa-couch text-neon-pink"></i></div>
+                      <div class="sector-card-text">
+                        <span class="sector-name">Lounge Mezanino</span>
+                        <span class="sector-capacity">6 a 8 Pessoas • R$ 1.000 consumíveis</span>
+                      </div>
+                      <span class="sector-badge badge-pink">Vista Alta</span>
+                    </div>
+                  </label>
+
+                  <!-- Setor 3: Camarote Black & Gold -->
+                  <label class="sector-option-card">
+                    <input type="radio" name="res_sector" value="camarote" data-name="Camarote Black & Gold" data-price="2500" data-capacity="12 Pessoas">
+                    <div class="sector-card-inner">
+                      <div class="sector-card-icon"><i class="fa-solid fa-crown text-neon-cyan"></i></div>
+                      <div class="sector-card-text">
+                        <span class="sector-name">Camarote Black & Gold</span>
+                        <span class="sector-capacity">Até 12 Pessoas • R$ 2.500 consumíveis</span>
+                      </div>
+                      <span class="sector-badge badge-pink">Ultimate</span>
+                    </div>
+                  </label>
+                </div>
+
+                <h3 class="form-section-title" style="margin-top: 30px;"><i class="fa-solid fa-2 text-neon-pink"></i> Data & Horário</h3>
+                
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="res-date" class="form-label">Data da Reserva:</label>
+                    <input type="date" id="res-date" class="form-input" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="res-time" class="form-label">Horário de Chegada:</label>
+                    <select id="res-time" class="form-input">
+                      <option value="22:00">22:00h (Abertura da Casa)</option>
+                      <option value="23:00" selected>23:00h (Horário Recomendado)</option>
+                      <option value="00:00">00:00h (Início dos DJs Principais)</option>
+                      <option value="01:00">01:00h (Madrugada VIP)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="res-guests" class="form-label">Número de Convidados:</label>
+                    <input type="number" id="res-guests" class="form-input" value="4" min="1" max="20" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="res-occasion" class="form-label">Ocasião Especial:</label>
+                    <select id="res-occasion" class="form-input">
+                      <option value="balada">Balada / Noite com Amigos</option>
+                      <option value="aniversario">Comemoração de Aniversário (Kit Chandon)</option>
+                      <option value="despedida">Despedida de Solteiro(a)</option>
+                      <option value="corporativo">Encontro Corporativo / VIP</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="res-combo" class="form-label">Combo de Boas-Vindas (Opcional):</label>
+                  <select id="res-combo" class="form-input">
+                    <option value="0" data-name="Nenhum combo prévio">Sem Combo Prévio (Escolher na hora)</option>
+                    <option value="490" data-name="Combo Absolut + 6 Red Bulls">Combo Absolut + 6 Red Bulls (+ R$ 490,00)</option>
+                    <option value="620" data-name="Combo Gin Hendrick's + 6 Tônicas">Combo Gin Hendrick's + 6 Tônicas (+ R$ 620,00)</option>
+                    <option value="2450" data-name="Champagne Dom Pérignon Luminous">Champagne Dom Pérignon Luminous (+ R$ 2.450,00)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Coluna 2: Dados do Titular e Resumo -->
+              <div class="reservation-col-right">
+                <h3 class="form-section-title"><i class="fa-solid fa-3 text-neon-pink"></i> Dados do Titular</h3>
+                
+                <div class="form-group">
+                  <label for="res-name" class="form-label">Nome Completo:</label>
+                  <input type="text" id="res-name" class="form-input" placeholder="Seu nome" required>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="res-email" class="form-label">E-mail de Contato:</label>
+                    <input type="email" id="res-email" class="form-input" placeholder="seuemail@exemplo.com" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="res-phone" class="form-label">WhatsApp:</label>
+                    <input type="tel" id="res-phone" class="form-input" placeholder="(11) 99999-9999" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="res-notes" class="form-label">Observações / Pedidos Especiais:</label>
+                  <textarea id="res-notes" class="form-input" rows="3" placeholder="Localização preferida da mesa, nomes na lista de convidados ou restrições..."></textarea>
+                </div>
+
+                <!-- Resumo Dinâmico do Valor -->
+                <div class="reservation-summary-card glass-card">
+                  <div class="summary-row flex-between">
+                    <span class="summary-label">Setor Selecionado:</span>
+                    <span class="summary-val text-neon-cyan" id="res-summary-sector">Mesa Bistrô VIP</span>
+                  </div>
+                  <div class="summary-row flex-between">
+                    <span class="summary-label">Consumação Mínima:</span>
+                    <span class="summary-val" id="res-summary-price">R$ 400,00</span>
+                  </div>
+                  <div class="summary-row flex-between">
+                    <span class="summary-label">Combo de Boas-Vindas:</span>
+                    <span class="summary-val" id="res-summary-combo">Nenhum combo prévio</span>
+                  </div>
+                  <div class="summary-divider"></div>
+                  <div class="summary-total-row flex-between">
+                    <span class="summary-total-label">Sinal de Reserva / Total:</span>
+                    <span class="summary-total-val text-neon-pink" id="res-summary-total">R$ 400,00</span>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full modal-submit-btn">
+                  <i class="fa-solid fa-crown"></i> Confirmar Solicitação de Reserva
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Modal / Card de Confirmação da Reserva -->
+          <div id="reservation-success-card" class="reservation-success-view text-center" style="display: none;">
+            <div class="success-icon-wrap flex-center">
+              <i class="fa-solid fa-champagne-glasses text-neon-pink"></i>
+            </div>
+            <span class="badge-neon badge-cyan">Reserva Solicitada com Sucesso</span>
+            <h3 class="success-title" style="margin-top: 15px;">Sua Noite VIP está Quase Pronta!</h3>
+            <p class="success-desc">
+              Geramos o seu código de reserva prioritária. Nossa equipe de concierge entrará em contato via WhatsApp nas próximas horas para validar sua lista de convidados e confirmar os detalhes da mesa.
+            </p>
+
+            <div class="voucher-box glass-card">
+              <div class="voucher-header flex-between">
+                <span class="voucher-brand text-neon-cyan font-accent">Los Angeles Club</span>
+                <span class="voucher-code" id="voucher-code-display">LAC-8942-VIP</span>
+              </div>
+              <div class="voucher-body">
+                <div class="voucher-info-row flex-between">
+                  <span>Titular:</span>
+                  <strong id="voucher-holder-name">Nome do Cliente</strong>
+                </div>
+                <div class="voucher-info-row flex-between">
+                  <span>Setor:</span>
+                  <strong id="voucher-sector-name">Camarote Black & Gold</strong>
+                </div>
+                <div class="voucher-info-row flex-between">
+                  <span>Data & Horário:</span>
+                  <strong id="voucher-datetime">26/09/2026 às 23:00h</strong>
+                </div>
+                <div class="voucher-info-row flex-between">
+                  <span>Convidados:</span>
+                  <strong id="voucher-guests">4 Pessoas</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="voucher-actions flex-center" style="margin-top: 25px; gap: 15px;">
+              <button id="btn-print-voucher" class="btn btn-cyan btn-sm"><i class="fa-solid fa-print"></i> Imprimir Voucher</button>
+              <button id="btn-new-reservation" class="btn btn-glass btn-sm">Nova Reserva</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Seção de Galeria da Noite (Club Gallery) -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Night Moments</span>
+          <h2 class="section-title">Club Gallery & Memories</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Reviva os momentos mais eletrizantes das nossas noites. Confira fotos em alta definição do palco principal, camarotes VIP, cabine de DJs e a atmosfera única da casa.
+          </p>
+        </div>
+
+        <!-- Filtros da Galeria -->
+        <div class="gallery-filters flex-center">
+          <button class="gallery-filter-btn active" data-filter="all">
+            <i class="fa-solid fa-border-all"></i> Todas as Fotos
+          </button>
+          <button class="gallery-filter-btn" data-filter="stage">
+            <i class="fa-solid fa-bolt"></i> Main Stage & Lasers
+          </button>
+          <button class="gallery-filter-btn" data-filter="vip">
+            <i class="fa-solid fa-crown"></i> VIP Lounge
+          </button>
+          <button class="gallery-filter-btn" data-filter="djs">
+            <i class="fa-solid fa-headphones"></i> DJs & Shows
+          </button>
+          <button class="gallery-filter-btn" data-filter="drinks">
+            <i class="fa-solid fa-martini-glass-citrus"></i> Drinks & Vibe
+          </button>
+        </div>
+
+        <!-- Grid de Fotos da Galeria -->
+        <div class="gallery-grid">
+          <!-- Foto 1 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="1" data-category="stage">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80" alt="Main Stage Laser Show">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-cyan">Main Stage & Lasers</span>
+              <h3 class="gallery-item-title">Main Stage Laser Show • Martin Garrix Live</h3>
+            </div>
+          </div>
+
+          <!-- Foto 2 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="2" data-category="vip">
+            <img src="https://images.unsplash.com/photo-1545128485-c400e7702796?auto=format&fit=crop&w=600&q=80" alt="Camarote Black & Gold">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-pink">VIP Lounge</span>
+              <h3 class="gallery-item-title">Camarote Black & Gold Experience</h3>
+            </div>
+          </div>
+
+          <!-- Foto 3 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="3" data-category="djs">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80" alt="DJ Marcus Vortex">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-cyan">DJs & Shows</span>
+              <h3 class="gallery-item-title">DJ Marcus Vortex na Cabine Principal</h3>
+            </div>
+          </div>
+
+          <!-- Foto 4 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="4" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Mixologia Autoral Neon">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-pink">Drinks & Vibe</span>
+              <h3 class="gallery-item-title">Mixologia Autoral no Neon Bar</h3>
+            </div>
+          </div>
+
+          <!-- Foto 5 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="5" data-category="vip">
+            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80" alt="Sunset to Sunrise Terraço">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-pink">VIP Lounge</span>
+              <h3 class="gallery-item-title">Sunset to Sunrise • Terraço Panorâmico</h3>
+            </div>
+          </div>
+
+          <!-- Foto 6 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="6" data-category="djs">
+            <img src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&w=600&q=80" alt="DJ Alexia Frost">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-cyan">DJs & Shows</span>
+              <h3 class="gallery-item-title">DJ Alexia Frost comandando a Pista</h3>
+            </div>
+          </div>
+
+          <!-- Foto 7 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="7" data-category="stage">
+            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=600&q=80" alt="Explosão de Confetes">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-cyan">Main Stage & Lasers</span>
+              <h3 class="gallery-item-title">Explosão de Confetes & CO2 Cannons</h3>
+            </div>
+          </div>
+
+          <!-- Foto 8 -->
+          <div class="gallery-grid-item gallery-card-trigger" data-id="8" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1569919659476-f0852f6834b7?auto=format&fit=crop&w=600&q=80" alt="Champagne Pirotecnia">
+            <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-tag text-neon-pink">Drinks & Vibe</span>
+              <h3 class="gallery-item-title">Champagne Shower & Pirotecnia VIP</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox em Tela Cheia -->
+    <div id="lightbox-modal" class="lightbox-modal lightbox-backdrop-target" aria-hidden="true">
+      <div class="lightbox-container">
+        <button id="lightbox-close-btn" class="lightbox-close" aria-label="Fechar Lightbox">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <button id="lightbox-prev-btn" class="lightbox-nav-btn lightbox-prev" aria-label="Foto Anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="lightbox-media-wrap">
+          <img id="lightbox-img" src="" alt="Foto em destaque">
+        </div>
+
+        <button id="lightbox-next-btn" class="lightbox-nav-btn lightbox-next" aria-label="Próxima Foto">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="lightbox-info">
+          <div class="lightbox-text-group">
+            <div class="lightbox-badge-row">
+              <span id="lightbox-category" class="badge-neon badge-pink">Categoria</span>
+            </div>
+            <h3 id="lightbox-title" class="lightbox-title">Título da Foto</h3>
+            <p id="lightbox-desc" class="lightbox-desc">Descrição detalhada do momento na casa noturna.</p>
+          </div>
+          <span id="lightbox-counter" class="lightbox-counter">1 / 8</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Depoimentos & Avaliações (Testimonials) -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Real Experiences</span>
+          <h2 class="section-title">VIP Reviews & What They Say</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            A opinião de quem vive a melhor noite de Los Angeles. Veja o que dizem nossos membros VIP, artistas convidados e personalidades da cena eletrônica.
+          </p>
+        </div>
+
+        <!-- Grid de Depoimentos -->
+        <div class="testimonials-grid">
+          <!-- Depoimento 1 -->
+          <div class="testimonial-card glass-card">
+            <i class="fa-solid fa-quote-right testimonial-quote-icon"></i>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "A acústica da pista principal e a sincronia dos lasers com o som é algo de outro mundo! Comemorar meu aniversário no Camarote Black & Gold foi a melhor decisão que tomei neste ano. Atendimento impecável!"
+            </p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Camila Albuquerque" class="author-avatar">
+              <div class="author-info">
+                <span class="author-name">Camila Albuquerque <i class="fa-solid fa-circle-check author-verified"></i></span>
+                <span class="author-role">Membro Black VIP • Aniversariante</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 2 -->
+          <div class="testimonial-card glass-card">
+            <i class="fa-solid fa-quote-right testimonial-quote-icon"></i>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Tocar na cabine do Los Angeles Club é sempre uma experiência eletrizante. O sistema de monitoramento de palco e a vibração do público fazem daqui uma das melhores casas noturnas das Américas!"
+            </p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Lucas Martins" class="author-avatar">
+              <div class="author-info">
+                <span class="author-name">Lucas Martins <i class="fa-solid fa-circle-check author-verified"></i></span>
+                <span class="author-role">Produtor & DJ Convidado</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depoimento 3 -->
+          <div class="testimonial-card glass-card">
+            <i class="fa-solid fa-quote-right testimonial-quote-icon"></i>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "A carta de coquetéis autorais é sensacional! O drinque Neon Cyberpunk com glitter comestível é uma obra de arte. A entrada expressa pela lista VIP funcionou perfeitamente sem nenhuma espera na fila."
+            </p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Juliana Ramos" class="author-avatar">
+              <div class="author-info">
+                <span class="author-name">Juliana Ramos <i class="fa-solid fa-circle-check author-verified"></i></span>
+                <span class="author-role">Digital Creator • Lifestyle & Nightlife</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Contato, Informações & FAQ (Contact & FAQ) -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-subtitle accent-style">Get In Touch</span>
+          <h2 class="section-title">Contact & Club Information</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Tire todas as suas dúvidas sobre trajes, horários, lista VIP e documentos. Entre em contato direto com o nosso time de concierge ou envie uma mensagem rápida.
+          </p>
+        </div>
+
+        <div class="contact-layout-grid">
+          <!-- Coluna Esquerda: FAQ Sanfonado (Accordion) -->
+          <div class="faq-container-box">
+            <!-- FAQ Item 1 -->
+            <div class="faq-card glass-card active">
+              <button type="button" class="faq-btn" aria-expanded="true">
+                <span class="faq-title">
+                  <i class="fa-solid fa-shirt text-neon-pink"></i> Qual é o Dress Code exigido na casa noturna?
+                </span>
+                <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-text">
+                  Trabalhamos com o padrão <strong>Smart Chic / Esporte Fino</strong>. Não é permitida a entrada com regatas masculinas, chinelos, bermudas de praia/tactel, correntes excessivas ou camisetas de times de futebol e torcidas organizadas.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-card glass-card">
+              <button type="button" class="faq-btn" aria-expanded="false">
+                <span class="faq-title">
+                  <i class="fa-solid fa-id-card text-neon-cyan"></i> Quais são os documentos obrigatórios para entrada?
+                </span>
+                <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-text">
+                  É obrigatória a apresentação de documento oficial com foto física recente (RG, CNH, Passaporte ou Carteira de Trabalho) ou CNH Digital oficial via app gov.br. Fotos ou xerox não autenticadas não serão aceitas. <strong>Proibida a entrada de menores de 18 anos.</strong>
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-card glass-card">
+              <button type="button" class="faq-btn" aria-expanded="false">
+                <span class="faq-title">
+                  <i class="fa-solid fa-ticket text-neon-pink"></i> Como funciona a Lista VIP e até que horas vale?
+                </span>
+                <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-text">
+                  A Lista VIP concede desconto de até 30% no valor da portaria e fila prioritária para entrada até às <strong>00:00h</strong>. Os nomes devem ser cadastrados no site ou via popup promocional até as 18:00h do dia do evento.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-card glass-card">
+              <button type="button" class="faq-btn" aria-expanded="false">
+                <span class="faq-title">
+                  <i class="fa-solid fa-credit-card text-neon-cyan"></i> Quais formas de pagamento são aceitas?
+                </span>
+                <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-text">
+                  Aceitamos cartões de crédito e débito (Visa, Mastercard, Elo, American Express), Apple Pay, Google Pay, dinheiro em espécie e PIX instantâneo nos caixas fixos e volantes do bar.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-card glass-card">
+              <button type="button" class="faq-btn" aria-expanded="false">
+                <span class="faq-title">
+                  <i class="fa-solid fa-car text-neon-pink"></i> Há serviço de Valet Parking no local?
+                </span>
+                <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-text">
+                  Sim! Dispomos de serviço de Valet com manobrista privativo segurado na porta principal do clube e estacionamento coberto com monitoramento 24 horas por câmeras de segurança.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-card glass-card">
+              <button type="button" class="faq-btn" aria-expanded="false">
+                <span class="faq-title">
+                  <i class="fa-solid fa-cake-candles text-neon-cyan"></i> Quais as vantagens para comemorar aniversário?
+                </span>
+                <span class="faq-icon-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-text">
+                  O aniversariante da semana ganha entrada VIP Free com direito a +1 acompanhante, 1 Garrafa de Chandon de cortesia e um link exclusivo com desconto automático para seus convidados.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Informações de Contato & Formulário de Mensagem -->
+          <div class="contact-sidebar">
+            <!-- Cards de Acesso Rápido -->
+            <div class="contact-info-cards-grid">
+              <!-- Card 1 -->
+              <div class="contact-info-card glass-card">
+                <div class="contact-info-icon text-neon-cyan"><i class="fa-solid fa-location-dot"></i></div>
+                <span class="contact-info-label">Endereço</span>
+                <span class="contact-info-val">Sunset Blvd 1080, West Hollywood - LA</span>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="contact-info-card glass-card">
+                <div class="contact-info-icon text-neon-pink"><i class="fa-solid fa-clock"></i></div>
+                <span class="contact-info-label">Horário</span>
+                <span class="contact-info-val">Qui a Dom: 22:00h às 06:00h</span>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="contact-info-card glass-card">
+                <div class="contact-info-icon text-neon-cyan"><i class="fa-brands fa-whatsapp"></i></div>
+                <span class="contact-info-label">Concierge VIP</span>
+                <span class="contact-info-val">(11) 99999-9999</span>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="contact-info-card glass-card">
+                <div class="contact-info-icon text-neon-pink"><i class="fa-solid fa-envelope"></i></div>
+                <span class="contact-info-label">E-mail Oficial</span>
+                <span class="contact-info-val">vip@losangelesclub.com</span>
+              </div>
+            </div>
+
+            <!-- Formulário de Mensagem Rápida -->
+            <div class="contact-form-box glass-card">
+              <h3 class="form-section-title"><i class="fa-solid fa-paper-plane text-neon-pink"></i> Envie uma Mensagem</h3>
+              
+              <form id="contact-msg-form">
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label for="contact-name" class="form-label">Seu Nome:</label>
+                    <input type="text" id="contact-name" class="form-input" placeholder="Ex: Roberto Silva" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="contact-email" class="form-label">Seu E-mail:</label>
+                    <input type="email" id="contact-email" class="form-input" placeholder="exemplo@email.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-subject" class="form-label">Assunto:</label>
+                  <select id="contact-subject" class="form-input">
+                    <option value="duvidas">Dúvidas Gerais / FAQ</option>
+                    <option value="aniversario">Comemoração de Aniversário</option>
+                    <option value="corporativo">Locação Corporativa / Evento Fechado</option>
+                    <option value="imprensa">Imprensa / Parcerias / DJs</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message" class="form-label">Mensagem:</label>
+                  <textarea id="contact-message" class="form-input" rows="3" placeholder="Como podemos ajudar você com a sua noite?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full modal-submit-btn">
+                  <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem ao Concierge
+                </button>
+              </form>
+
+              <!-- Feedback de Sucesso -->
+              <div id="contact-form-success" class="modal-success-box text-center" style="display: none; padding: 20px 0 5px;">
+                <i class="fa-solid fa-circle-check text-neon-cyan" style="font-size: 2.2rem; margin-bottom: 8px;"></i>
+                <h4 style="font-size: 1.1rem; color: #ffffff;">Mensagem Enviada com Sucesso!</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Nosso concierge responderá via e-mail ou WhatsApp em até 2 horas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Botão Flutuante de Lista VIP -->
+  <button id="open-vip-popup-btn" class="floating-vip-btn" aria-label="Abrir Lista VIP com Desconto">
+    <i class="fa-solid fa-crown"></i> Lista VIP 20% OFF
+  </button>
+
+  <!-- Modal Popup Lista VIP & Benefícios -->
+  <div id="vip-popup-modal" class="vip-popup-modal" aria-hidden="true">
+    <div class="vip-popup-card glass-card text-center">
+      <button id="vip-popup-close-btn" class="vip-popup-close" aria-label="Fechar Popup">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="vip-popup-header">
+        <span class="badge-neon badge-pink"><i class="fa-solid fa-bolt"></i> Benefício Exclusivo</span>
+        <h3 class="vip-popup-title">Entre na Lista VIP com 20% OFF</h3>
+        <p class="vip-popup-desc">Cadastre-se agora para receber desconto especial na entrada até 00:00h e welcome drink no bar principal.</p>
+      </div>
+
+      <form id="vip-guestlist-form">
+        <div class="form-group text-left">
+          <label for="vip-pop-name" class="form-label">Nome Completo:</label>
+          <input type="text" id="vip-pop-name" class="form-input" placeholder="Seu nome completo" required>
+        </div>
+
+        <div class="form-group text-left">
+          <label for="vip-pop-phone" class="form-label">WhatsApp:</label>
+          <input type="tel" id="vip-pop-phone" class="form-input" placeholder="(11) 99999-9999" required>
+        </div>
+
+        <div class="form-group text-left">
+          <label for="vip-pop-music" class="form-label">Estilo Musical Preferido:</label>
+          <select id="vip-pop-music" class="form-input">
+            <option value="edm">EDM & Progressive Festival</option>
+            <option value="house">Deep & Melodic House</option>
+            <option value="hiphop">Hip-Hop & Trap</option>
+            <option value="techno">Peak Time & Tech House</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full modal-submit-btn" style="margin-top: 15px;">
+          <i class="fa-solid fa-key"></i> Gerar Meu Passe VIP
+        </button>
+      </form>
+
+      <!-- Resultado com Código VIP -->
+      <div id="vip-result-box" class="vip-pass-result" style="display: none;">
+        <span class="vip-pass-title">Passe VIP Liberado!</span>
+        <span class="vip-pass-code font-accent" id="vip-pass-code-text">VIP-LAC-7821</span>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
+          Apresente este código na portaria com seu documento original para validar o desconto. Enviamos uma cópia para o seu WhatsApp.
+        </p>
+        <button type="button" class="btn btn-cyan btn-sm" onclick="document.getElementById('vip-popup-modal').classList.remove('active');">
+          Concluir & Aproveitar a Noite
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé Completo do Site (Footer) -->
+  <footer id="main-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Coluna 1: Marca & Redes -->
+        <div class="footer-col footer-col-brand">
+          <a href="#hero" class="site-logo">
+            <span class="logo-sub font-accent text-neon-cyan">Los Angeles</span>
+            <span class="logo-main text-neon-pink">CLUB<span class="logo-dot">.</span></span>
+          </a>
+          <p class="footer-about-text">
+            A casa noturna número 1 em entretenimento imersivo, sistemas de som Funktion-One 3D, pirotecnia laser e atendimento VIP exclusivo.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="footer-social-pill" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer-social-pill" aria-label="Spotify"><i class="fa-brands fa-spotify"></i></a>
+            <a href="#" class="footer-social-pill" aria-label="SoundCloud"><i class="fa-brands fa-soundcloud"></i></a>
+            <a href="#" class="footer-social-pill" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="footer-social-pill" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Explorar</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero"><i class="fa-solid fa-angle-right text-neon-pink"></i> Home</a></li>
+            <li><a href="#about"><i class="fa-solid fa-angle-right text-neon-pink"></i> Sobre a Casa</a></li>
+            <li><a href="#events"><i class="fa-solid fa-angle-right text-neon-pink"></i> Programação & Festas</a></li>
+            <li><a href="#djs"><i class="fa-solid fa-angle-right text-neon-pink"></i> DJs Residentes</a></li>
+            <li><a href="#menu"><i class="fa-solid fa-angle-right text-neon-pink"></i> Cardápio de Bebidas</a></li>
+            <li><a href="#services"><i class="fa-solid fa-angle-right text-neon-pink"></i> Serviços VIP</a></li>
+            <li><a href="#gallery"><i class="fa-solid fa-angle-right text-neon-pink"></i> Galeria da Noite</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-angle-right text-neon-pink"></i> Contato & FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Horários & Local -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Funcionamento</h4>
+          <div class="footer-schedule-list">
+            <div class="schedule-row">
+              <span class="schedule-day">Quinta-feira:</span>
+              <span class="schedule-time">22h às 05h</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Sexta-feira:</span>
+              <span class="schedule-time">22h às 06h</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Sábado:</span>
+              <span class="schedule-time">22h às 07h</span>
+            </div>
+            <div class="schedule-row">
+              <span class="schedule-day">Domingo (Sunset):</span>
+              <span class="schedule-time">18h às 02h</span>
+            </div>
+          </div>
+          <div style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+            <p><i class="fa-solid fa-location-dot text-neon-cyan"></i> Sunset Blvd 1080, West Hollywood</p>
+            <p style="margin-top: 6px;"><i class="fa-solid fa-phone text-neon-pink"></i> +1 (310) 555-0199</p>
+          </div>
+        </div>
+
+        <!-- Coluna 4: Newsletter VIP -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">VIP Newsletter</h4>
+          <div class="footer-newsletter-box">
+            <p class="footer-newsletter-desc">
+              Receba os lineups antecipados, pré-vendas de ingressos e cortesias exclusivas direto na sua caixa de entrada.
+            </p>
+            <form id="footer-newsletter-form" class="footer-newsletter-form">
+              <input type="email" class="form-input" placeholder="Seu melhor e-mail" required>
+              <button type="submit" class="btn btn-cyan btn-sm btn-full">
+                <i class="fa-solid fa-envelope"></i> Cadastrar VIP
+              </button>
+            </form>
+            <div id="newsletter-success-msg" style="display: none; margin-top: 10px; font-size: 0.82rem; color: var(--neon-cyan);">
+              <i class="fa-solid fa-circle-check"></i> E-mail cadastrado com sucesso na lista VIP!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra Inferior do Rodapé -->
+      <div class="footer-bottom-bar flex-between">
+        <p>© 2026 <strong>Los Angeles Club</strong>. Todos os direitos reservados. Design & Experience.</p>
+        <div class="footer-bottom-links flex-center">
+          <span class="badge-age-18"><i class="fa-solid fa-ban"></i> +18 Anos Obrigatório</span>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade & Cookies</a>
+          <a href="#">Regulamento Interno</a>
+          <a href="/admin" target="_blank" style="color: var(--neon-cyan);"><i class="fa-solid fa-lock"></i> Painel Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/content-loader.js"></script>
+  <script src="js/audio-player.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/reservation.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

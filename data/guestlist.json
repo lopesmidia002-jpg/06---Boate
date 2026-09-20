@@ -1,0 +1,11 @@
+[
+  {
+    "id": "VIP-LAC-7821",
+    "name": "Mariana Castro",
+    "email": "mariana.c@example.com",
+    "phone": "(11) 97654-3210",
+    "code": "VIP-LAC-7821",
+    "discount": "20% OFF",
+    "createdAt": "2026-09-20T08:15:00Z"
+  }
+]

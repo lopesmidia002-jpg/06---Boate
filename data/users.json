@@ -1,0 +1,9 @@
+[
+  {
+    "id": "usr_admin",
+    "username": "admin",
+    "name": "Diretoria / Admin Geral",
+    "passwordHash": "$2a$10$N8oBT0ryHJua1nOk5wPqr.97IzkR7poJ76ES7xQVhfUvu/98UOF72",
+    "createdAt": "2026-09-20T11:36:16.516Z"
+  }
+]

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  boate-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: los_angeles_club_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=los_angeles_club_super_secret_jwt_key_2026
+    volumes:
+      # Volumes persistentes para dados (CMS) e uploads de mídia
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/api/content"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo CMS | Los Angeles Club & VIP Lounge</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- =========================================================================
+       1. TELA DE LOGIN (Aparece se não autenticado)
+       ========================================================================= -->
+  <div id="login-screen" class="login-wrapper flex-center">
+    <div class="login-box glass-panel">
+      <div class="login-header">
+        <div class="login-badge"><i class="fa-solid fa-shield-halved"></i> ÁREA RESTRITA</div>
+        <h1 class="login-title"><span class="text-neon-cyan">LOS ANGELES</span> <span class="text-neon-pink">CMS</span></h1>
+        <p class="login-subtitle">Acesso ao Painel de Controle e Gestão da Noite</p>
+      </div>
+
+      <form id="login-form" class="login-form">
+        <div id="login-alert" class="alert-message hidden"></div>
+
+        <div class="form-group">
+          <label for="login-username"><i class="fa-solid fa-user text-neon-cyan"></i> Usuário:</label>
+          <input type="text" id="login-username" class="admin-input" placeholder="Ex: admin" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="login-password"><i class="fa-solid fa-lock text-neon-pink"></i> Senha:</label>
+          <div class="password-input-wrap">
+            <input type="password" id="login-password" class="admin-input" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" id="toggle-password-btn" class="toggle-pwd-btn" aria-label="Mostrar/Ocultar Senha">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="btn-primary-neon btn-block">
+          <span>ENTRAR NO PAINEL</span>
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </button>
+
+        <div class="login-footer">
+          <p><i class="fa-solid fa-circle-info"></i> Acesso padrão inicial: <code>admin</code> / <code>admin123</code></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. DASHBOARD PRINCIPAL (Exibido após Login)
+       ========================================================================= -->
+  <div id="admin-app" class="admin-app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="brand-logo">
+          <i class="fa-solid fa-compact-disc brand-icon pulse-glow"></i>
+          <div>
+            <div class="brand-title">LOS ANGELES</div>
+            <div class="brand-tag">ADMIN CMS</div>
+          </div>
+        </div>
+        <button id="close-sidebar-btn" class="sidebar-close-btn md-only" aria-label="Fechar Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">PRINCIPAL</div>
+        <button class="nav-item active" data-tab="tab-dashboard">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-tab="tab-identity">
+          <i class="fa-solid fa-palette"></i>
+          <span>Identidade & Cores</span>
+        </button>
+        <button class="nav-item" data-tab="tab-hero">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Hero & Quem Somos</span>
+        </button>
+
+        <div class="nav-section-title">PROGRAMAÇÃO & VENDAS</div>
+        <button class="nav-item" data-tab="tab-events">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Eventos & Festas</span>
+        </button>
+        <button class="nav-item" data-tab="tab-djs">
+          <i class="fa-solid fa-headphones-simple"></i>
+          <span>Time de DJs</span>
+        </button>
+        <button class="nav-item" data-tab="tab-menu">
+          <i class="fa-solid fa-martini-glass-citrus"></i>
+          <span>Cardápio & Drinks</span>
+        </button>
+        <button class="nav-item" data-tab="tab-vip">
+          <i class="fa-solid fa-crown"></i>
+          <span>Serviços VIP</span>
+        </button>
+
+        <div class="nav-section-title">MÍDIA & ATENDIMENTO</div>
+        <button class="nav-item" data-tab="tab-gallery">
+          <i class="fa-solid fa-images"></i>
+          <span>Galeria de Fotos</span>
+        </button>
+        <button class="nav-item" data-tab="tab-reservations">
+          <i class="fa-solid fa-receipt"></i>
+          <span>Reservas VIP</span>
+          <span id="badge-pending-reservations" class="nav-badge">0</span>
+        </button>
+        <button class="nav-item" data-tab="tab-guestlist">
+          <i class="fa-solid fa-users"></i>
+          <span>Lista VIP</span>
+        </button>
+        <button class="nav-item" data-tab="tab-contacts">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Mensagens & Contatos</span>
+        </button>
+        <button class="nav-item" data-tab="tab-security">
+          <i class="fa-solid fa-lock"></i>
+          <span>Segurança & Senha</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" class="btn-preview-site">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>Ver Site Público</span>
+        </a>
+        <button id="btn-logout" class="btn-logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>Sair</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="admin-main">
+      
+      <!-- TOP BAR -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button id="toggle-sidebar-btn" class="toggle-sidebar-btn" aria-label="Abrir Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-page-info">
+            <h2 id="topbar-current-page" class="topbar-title">Dashboard</h2>
+            <span class="topbar-status-dot online"></span> <span class="topbar-status-text">Servidor Conectado</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button id="btn-save-all-top" class="btn-save-glow">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span>Salvar Alterações</span>
+          </button>
+          <div class="user-pill">
+            <div class="user-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="user-details">
+              <span id="topbar-username" class="user-name">Administrador</span>
+              <span class="user-role">Super Admin</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- NOTIFICAÇÃO FLUTUANTE (TOAST) -->
+      <div id="admin-toast" class="admin-toast hidden">
+        <i class="toast-icon fa-solid fa-circle-check"></i>
+        <span class="toast-text">Alterações salvas com sucesso!</span>
+      </div>
+
+      <!-- CONTAINER DAS ABAS -->
+      <div class="admin-content-container">
+
+        <!-- ==========================================================
+             ABA 1: DASHBOARD
+             ========================================================== -->
+        <section id="tab-dashboard" class="admin-tab-pane active">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Visão Geral & Métricas da Boate</h3>
+              <p class="pane-desc">Acompanhamento em tempo real de reservas, lista VIP e estatísticas gerais.</p>
+            </div>
+            <button class="btn-outline-neon btn-refresh-stats" id="btn-refresh-stats">
+              <i class="fa-solid fa-rotate"></i> Atualizar Métricas
+            </button>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card glass-panel">
+              <div class="stat-icon-wrap cyan"><i class="fa-solid fa-receipt"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-total-reservations">0</div>
+                <div class="stat-label">Total de Reservas</div>
+              </div>
+            </div>
+
+            <div class="stat-card glass-panel">
+              <div class="stat-icon-wrap pink"><i class="fa-solid fa-clock"></i></div>
+              <div class="stat-info">
+                <div class="stat-value text-neon-pink" id="stat-pending-reservations">0</div>
+                <div class="stat-label">Reservas Pendentes</div>
+              </div>
+            </div>
+
+            <div class="stat-card glass-panel">
+              <div class="stat-icon-wrap green"><i class="fa-solid fa-users"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-total-guestlist">0</div>
+                <div class="stat-label">Membros Lista VIP</div>
+              </div>
+            </div>
+
+            <div class="stat-card glass-panel">
+              <div class="stat-icon-wrap purple"><i class="fa-solid fa-calendar-star"></i></div>
+              <div class="stat-info">
+                <div class="stat-value" id="stat-total-events">0</div>
+                <div class="stat-label">Festas Cadastradas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AÇÕES RÁPIDAS -->
+          <div class="dashboard-quick-actions">
+            <h4 class="section-subtitle"><i class="fa-solid fa-bolt text-neon-cyan"></i> Ações Rápidas de Gestão</h4>
+            <div class="quick-cards-grid">
+              <div class="quick-action-card glass-panel" onclick="admin.switchTab('tab-identity')">
+                <i class="fa-solid fa-palette text-neon-cyan"></i>
+                <h5>Mudar Cores & Logo</h5>
+                <p>Personalize as cores neon (Ciano, Rosa) e logotipos da casa.</p>
+              </div>
+              <div class="quick-action-card glass-panel" onclick="admin.switchTab('tab-events')">
+                <i class="fa-solid fa-plus text-neon-pink"></i>
+                <h5>Nova Festa / Evento</h5>
+                <p>Crie novas programações, flyers, lineups e lotes de ingressos.</p>
+              </div>
+              <div class="quick-action-card glass-panel" onclick="admin.switchTab('tab-reservations')">
+                <i class="fa-solid fa-check-double text-neon-cyan"></i>
+                <h5>Aprovar Reservas</h5>
+                <p>Confirme mesas bistrô e camarotes recebidos pelo formulário.</p>
+              </div>
+              <div class="quick-action-card glass-panel" onclick="admin.switchTab('tab-menu')">
+                <i class="fa-solid fa-cocktail text-neon-pink"></i>
+                <h5>Editar Cardápio</h5>
+                <p>Adicione novos drinks autorais, champagnes e combos.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 2: IDENTIDADE VISUAL & CORES (PALETA NEON)
+             ========================================================== -->
+        <section id="tab-identity" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Identidade Visual, Logo & Cores Neon</h3>
+              <p class="pane-desc">Altere o nome da casa, slogan, logotipo e paleta de iluminação em tempo real.</p>
+            </div>
+          </div>
+
+          <div class="admin-grid-2">
+            <!-- CORES NEON -->
+            <div class="admin-card glass-panel">
+              <h4 class="card-title"><i class="fa-solid fa-palette text-neon-cyan"></i> Paleta de Cores Neon</h4>
+              <p class="card-desc">As alterações nas cores refletem instantaneamente no site público.</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="color-neon-cyan">Cor Principal (Neon Ciano):</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" id="color-neon-cyan" class="color-picker" value="#00deff">
+                    <input type="text" id="color-neon-cyan-hex" class="admin-input hex-input" value="#00deff">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="color-neon-pink">Cor Secundária (Neon Rosa):</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" id="color-neon-pink" class="color-picker" value="#f92056">
+                    <input type="text" id="color-neon-pink-hex" class="admin-input hex-input" value="#f92056">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="color-bg-primary">Fundo Principal (Escuro):</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" id="color-bg-primary" class="color-picker" value="#07080c">
+                    <input type="text" id="color-bg-primary-hex" class="admin-input hex-input" value="#07080c">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="color-bg-card">Fundo dos Cards:</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" id="color-bg-card" class="color-picker" value="#121623">
+                    <input type="text" id="color-bg-card-hex" class="admin-input hex-input" value="#121623">
+                  </div>
+                </div>
+              </div>
+
+              <!-- PREVIEW DE GRADIENTE -->
+              <div class="color-preview-box" id="color-preview-box">
+                <span>PREVIEW DA ILUMINAÇÃO NEON</span>
+              </div>
+            </div>
+
+            <!-- LOGO & NOMES -->
+            <div class="admin-card glass-panel">
+              <h4 class="card-title"><i class="fa-solid fa-shapes text-neon-pink"></i> Nome & Logotipo</h4>
+
+              <div class="form-group">
+                <label for="input-club-name">Nome da Boate / Lounge:</label>
+                <input type="text" id="input-club-name" class="admin-input" value="Los Angeles Club">
+              </div>
+
+              <div class="form-group">
+                <label for="input-club-slogan">Slogan Oficial:</label>
+                <input type="text" id="input-club-slogan" class="admin-input" value="Light Your Night & Vibe High">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="input-logo-text-main">Texto Logo Principal:</label>
+                  <input type="text" id="input-logo-text-main" class="admin-input" value="LOS ANGELES">
+                </div>
+                <div class="form-group">
+                  <label for="input-logo-text-sub">Subtexto do Logo:</label>
+                  <input type="text" id="input-logo-text-sub" class="admin-input" value="NIGHTCLUB & LOUNGE">
+                </div>
+              </div>
+
+              <!-- UPLOAD DE IMAGEM DO LOGO (OPCIONAL) -->
+              <div class="form-group">
+                <label>Imagem do Logotipo (Opcional - substitui o texto se preenchido):</label>
+                <div class="upload-drop-zone" id="logo-dropzone">
+                  <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                  <p>Arraste uma imagem ou <span class="text-neon-cyan">clique aqui</span> para fazer upload</p>
+                  <input type="file" id="logo-file-input" class="hidden-file-input" accept="image/*">
+                  <div id="logo-preview-wrapper" class="upload-preview hidden">
+                    <img id="logo-preview-img" src="" alt="Preview do Logo">
+                    <button type="button" class="btn-remove-upload" id="btn-remove-logo"><i class="fa-solid fa-trash"></i></button>
+                  </div>
+                </div>
+                <input type="text" id="input-logo-image-url" class="admin-input mt-2" placeholder="Ou cole a URL direta da imagem do logo">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 3: HERO & QUEM SOMOS
+             ========================================================== -->
+        <section id="tab-hero" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Hero Section & Textos "Quem Somos"</h3>
+              <p class="pane-desc">Gerencie os títulos chamativos da tela inicial, contagem regressiva e contadores.</p>
+            </div>
+          </div>
+
+          <div class="admin-grid-2">
+            <!-- HERO -->
+            <div class="admin-card glass-panel">
+              <h4 class="card-title"><i class="fa-solid fa-star text-neon-cyan"></i> Hero (Tela Inicial)</h4>
+
+              <div class="form-group">
+                <label for="hero-badge">Selo / Badge Superior:</label>
+                <input type="text" id="hero-badge" class="admin-input" value="A Casa Noturna Mais Exclusiva da Cidade">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hero-title-prefix">Título Prefixo:</label>
+                  <input type="text" id="hero-title-prefix" class="admin-input" value="LIGHT YOUR">
+                </div>
+                <div class="form-group">
+                  <label for="hero-title-highlight">Título Destaque (Glow):</label>
+                  <input type="text" id="hero-title-highlight" class="admin-input" value="NIGHT">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="hero-desc">Descrição Principal:</label>
+                <textarea id="hero-desc" class="admin-textarea" rows="3">Uma fusão inigualável de sonoridades eletrônicas globais, espetáculos visuais em laser neon e serviços de camarote VIP ultra premium.</textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="hero-countdown-target">Data/Hora da Contagem Regressiva:</label>
+                <input type="datetime-local" id="hero-countdown-target" class="admin-input">
+              </div>
+            </div>
+
+            <!-- QUEM SOMOS & STATS -->
+            <div class="admin-card glass-panel">
+              <h4 class="card-title"><i class="fa-solid fa-building text-neon-pink"></i> Seção Quem Somos (About)</h4>
+
+              <div class="form-group">
+                <label for="about-title">Título da Seção:</label>
+                <input type="text" id="about-title" class="admin-input" value="Aonde a Música e a Alta Sociedade Noturna se Encontram">
+              </div>
+
+              <div class="form-group">
+                <label for="about-lead">Parágrafo Principal:</label>
+                <textarea id="about-lead" class="admin-textarea" rows="3">Fundado para redefinir o conceito de entretenimento noturno de luxo, o Los Angeles Club combina arquitetura futurista, acústica de padrão internacional e atendimento VIP privativo.</textarea>
+              </div>
+
+              <h5 class="mt-3 text-neon-cyan"><i class="fa-solid fa-arrow-up-right-dots"></i> Contadores Numéricos</h5>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="stat-events-num">Eventos Realizados:</label>
+                  <input type="number" id="stat-events-num" class="admin-input" value="500">
+                </div>
+                <div class="form-group">
+                  <label for="stat-djs-num">DJs Internacionais:</label>
+                  <input type="number" id="stat-djs-num" class="admin-input" value="120">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="stat-vip-num">Membros VIP (k):</label>
+                  <input type="number" id="stat-vip-num" class="admin-input" value="50">
+                </div>
+                <div class="form-group">
+                  <label for="stat-years-num">Anos de Liderança:</label>
+                  <input type="number" id="stat-years-num" class="admin-input" value="15">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 4: EVENTOS & FESTAS
+             ========================================================== -->
+        <section id="tab-events" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Gestão de Festas & Eventos</h3>
+              <p class="pane-desc">Cadastre, edite fotos, valores de ingressos e informações das próximas noites.</p>
+            </div>
+            <button class="btn-primary-neon" id="btn-add-event">
+              <i class="fa-solid fa-plus"></i> Adicionar Nova Festa
+            </button>
+          </div>
+
+          <div id="events-list-container" class="items-list-grid">
+            <!-- Eventos renderizados via JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 5: TIME DE DJS
+             ========================================================== -->
+        <section id="tab-djs" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Gestão do Time de DJs</h3>
+              <p class="pane-desc">Atualize os perfis dos DJs residentes, fotos, biografias e gêneros musicais.</p>
+            </div>
+            <button class="btn-primary-neon" id="btn-add-dj">
+              <i class="fa-solid fa-plus"></i> Adicionar Novo DJ
+            </button>
+          </div>
+
+          <div id="djs-list-container" class="items-list-grid">
+            <!-- DJs renderizados via JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 6: CARDÁPIO & DRINKS
+             ========================================================== -->
+        <section id="tab-menu" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Cardápio de Bebidas & Mixologia</h3>
+              <p class="pane-desc">Gerencie coquetéis autorais, garrafas, champagnes e combos.</p>
+            </div>
+            <button class="btn-primary-neon" id="btn-add-menu-item">
+              <i class="fa-solid fa-plus"></i> Adicionar Item ao Menu
+            </button>
+          </div>
+
+          <div id="menu-list-container" class="items-list-grid">
+            <!-- Itens de cardápio renderizados via JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 7: SERVIÇOS VIP & CAMAROTES
+             ========================================================== -->
+        <section id="tab-vip" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Serviços VIP & Valores de Setores</h3>
+              <p class="pane-desc">Defina os valores base e capacidades para Mesas Bistrô, Mezanino e Camarotes.</p>
+            </div>
+          </div>
+
+          <div class="admin-grid-3">
+            <div class="admin-card glass-panel">
+              <h4 class="card-title text-neon-cyan"><i class="fa-solid fa-wine-glass"></i> Mesa Bistrô</h4>
+              <div class="form-group">
+                <label for="vip-bistro-price">Valor Base (R$):</label>
+                <input type="number" id="vip-bistro-price" class="admin-input" value="1200">
+              </div>
+              <div class="form-group">
+                <label for="vip-bistro-cap">Capacidade Recomendada:</label>
+                <input type="text" id="vip-bistro-cap" class="admin-input" value="Até 4 pessoas">
+              </div>
+            </div>
+
+            <div class="admin-card glass-panel">
+              <h4 class="card-title text-neon-pink"><i class="fa-solid fa-champagne-glasses"></i> Lounge Mezanino</h4>
+              <div class="form-group">
+                <label for="vip-mezzanine-price">Valor Base (R$):</label>
+                <input type="number" id="vip-mezzanine-price" class="admin-input" value="2800">
+              </div>
+              <div class="form-group">
+                <label for="vip-mezzanine-cap">Capacidade Recomendada:</label>
+                <input type="text" id="vip-mezzanine-cap" class="admin-input" value="Até 8 pessoas">
+              </div>
+            </div>
+
+            <div class="admin-card glass-panel">
+              <h4 class="card-title" style="color: #ffd700;"><i class="fa-solid fa-crown"></i> Camarote Black & Gold</h4>
+              <div class="form-group">
+                <label for="vip-blackgold-price">Valor Base (R$):</label>
+                <input type="number" id="vip-blackgold-price" class="admin-input" value="5500">
+              </div>
+              <div class="form-group">
+                <label for="vip-blackgold-cap">Capacidade Recomendada:</label>
+                <input type="text" id="vip-blackgold-cap" class="admin-input" value="Até 15 pessoas">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 8: GALERIA DE FOTOS
+             ========================================================== -->
+        <section id="tab-gallery" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Galeria de Fotos da Casa</h3>
+              <p class="pane-desc">Faça upload de fotos das noites, shows e momentos da boate.</p>
+            </div>
+            <div class="upload-btn-wrap">
+              <label for="gallery-bulk-upload" class="btn-primary-neon cursor-pointer">
+                <i class="fa-solid fa-cloud-arrow-up"></i> Fazer Upload de Foto
+              </label>
+              <input type="file" id="gallery-bulk-upload" class="hidden-file-input" accept="image/*">
+            </div>
+          </div>
+
+          <div id="gallery-manage-grid" class="gallery-admin-grid">
+            <!-- Fotos renderizadas via JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 9: RESERVAS VIP RECEBIDAS
+             ========================================================== -->
+        <section id="tab-reservations" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Gerenciador de Reservas de Mesas & Camarotes</h3>
+              <p class="pane-desc">Visualize e aprove solicitações enviadas em tempo real pelo site.</p>
+            </div>
+            <button class="btn-outline-neon" id="btn-export-reservations">
+              <i class="fa-solid fa-file-csv"></i> Exportar CSV
+            </button>
+          </div>
+
+          <div class="table-responsive glass-panel">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Voucher</th>
+                  <th>Cliente</th>
+                  <th>Contato</th>
+                  <th>Setor</th>
+                  <th>Data/Hora</th>
+                  <th>Pessoas</th>
+                  <th>Estimativa</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="reservations-table-body">
+                <!-- Linhas renderizadas via JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 10: LISTA VIP (GUESTLIST)
+             ========================================================== -->
+        <section id="tab-guestlist" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Inscrições na Lista VIP (20% OFF)</h3>
+              <p class="pane-desc">Clientes cadastrados pelo popup promocional da boate.</p>
+            </div>
+            <button class="btn-outline-neon" id="btn-export-guestlist">
+              <i class="fa-solid fa-file-csv"></i> Exportar Lista
+            </button>
+          </div>
+
+          <div class="table-responsive glass-panel">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nome do Cliente</th>
+                  <th>E-mail</th>
+                  <th>WhatsApp</th>
+                  <th>Desconto</th>
+                  <th>Data Cadastro</th>
+                </tr>
+              </thead>
+              <tbody id="guestlist-table-body">
+                <!-- Linhas renderizadas via JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 11: MENSAGENS & CONTATOS
+             ========================================================== -->
+        <section id="tab-contacts" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Informações de Contato & Mensagens</h3>
+              <p class="pane-desc">Altere endereço, WhatsApp, horários e visualize mensagens recebidas.</p>
+            </div>
+          </div>
+
+          <div class="admin-grid-2">
+            <!-- INFORMAÇÕES DE CONTATO -->
+            <div class="admin-card glass-panel">
+              <h4 class="card-title"><i class="fa-solid fa-address-book text-neon-cyan"></i> Dados de Contato</h4>
+
+              <div class="form-group">
+                <label for="contact-address">Endereço Completo:</label>
+                <input type="text" id="contact-address" class="admin-input" value="Av. Brigadeiro Faria Lima, 4500 - Itaim Bibi, São Paulo - SP">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-phone">Telefone Fixo:</label>
+                  <input type="text" id="contact-phone" class="admin-input" value="+55 (11) 3088-9900">
+                </div>
+                <div class="form-group">
+                  <label for="contact-whatsapp">WhatsApp Concierge VIP:</label>
+                  <input type="text" id="contact-whatsapp" class="admin-input" value="+55 (11) 99876-5432">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">E-mail Oficial:</label>
+                <input type="email" id="contact-email" class="admin-input" value="vip@losangelesclub.com.br">
+              </div>
+
+              <h5 class="mt-3 text-neon-pink"><i class="fa-solid fa-clock"></i> Horários de Funcionamento</h5>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hours-thurs">Quintas:</label>
+                  <input type="text" id="hours-thurs" class="admin-input" value="22h00 - 05h00">
+                </div>
+                <div class="form-group">
+                  <label for="hours-fri">Sextas:</label>
+                  <input type="text" id="hours-fri" class="admin-input" value="22h00 - 06h00">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hours-sat">Sábados:</label>
+                  <input type="text" id="hours-sat" class="admin-input" value="23h00 - 07h00">
+                </div>
+                <div class="form-group">
+                  <label for="hours-sun">Domingos:</label>
+                  <input type="text" id="hours-sun" class="admin-input" value="18h00 - 03h00">
+                </div>
+              </div>
+            </div>
+
+            <!-- MENSAGENS RECEBIDAS -->
+            <div class="admin-card glass-panel">
+              <h4 class="card-title"><i class="fa-solid fa-inbox text-neon-pink"></i> Mensagens Recebidas</h4>
+              <div id="messages-list-container" class="messages-container">
+                <!-- Mensagens renderizadas via JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================================
+             ABA 12: SEGURANÇA & SENHA
+             ========================================================== -->
+        <section id="tab-security" class="admin-tab-pane">
+          <div class="pane-header">
+            <div>
+              <h3 class="pane-title">Segurança & Alteração de Senha</h3>
+              <p class="pane-desc">Altere o usuário e a senha do administrador do painel.</p>
+            </div>
+          </div>
+
+          <div class="admin-card glass-panel max-w-600">
+            <form id="form-change-password">
+              <div id="security-alert" class="alert-message hidden"></div>
+
+              <div class="form-group">
+                <label for="sec-current-password">Senha Atual Obrigatória:</label>
+                <input type="password" id="sec-current-password" class="admin-input" required placeholder="Digite sua senha atual">
+              </div>
+
+              <div class="form-group">
+                <label for="sec-new-username">Novo Nome de Usuário (Opcional):</label>
+                <input type="text" id="sec-new-username" class="admin-input" placeholder="Ex: admin_geral">
+              </div>
+
+              <div class="form-group">
+                <label for="sec-new-name">Nome de Exibição (Opcional):</label>
+                <input type="text" id="sec-new-name" class="admin-input" placeholder="Ex: Nilton Santos">
+              </div>
+
+              <div class="form-group">
+                <label for="sec-new-password">Nova Senha (Mínimo 6 caracteres):</label>
+                <input type="password" id="sec-new-password" class="admin-input" placeholder="Nova senha forte">
+              </div>
+
+              <button type="submit" class="btn-primary-neon mt-2">
+                <i class="fa-solid fa-key"></i> Salvar Novas Credenciais
+              </button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DINÂMICO PARA ADICIONAR / EDITAR ITENS (EVENTO, DJ, DRINK)
+       ========================================================================= -->
+  <div id="admin-modal" class="admin-modal-overlay hidden">
+    <div class="admin-modal-card glass-panel">
+      <div class="modal-header">
+        <h4 id="admin-modal-title" class="modal-title">Editar Item</h4>
+        <button id="close-modal-btn" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="admin-modal-body" class="modal-body">
+        <!-- Campos injetados dinamicamente via JS -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-modal-cancel" class="btn-secondary">Cancelar</button>
+        <button type="button" id="btn-modal-save" class="btn-primary-neon">Salvar Item</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
