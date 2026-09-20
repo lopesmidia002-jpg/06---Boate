@@ -3057,7 +3057,8 @@ button, input, select, textarea {
 .floating-vip-btn {
   position: fixed;
   bottom: 28px;
-  right: 28px;
+  left: 28px;
+  right: auto;
   z-index: 990;
   background: linear-gradient(135deg, #ff1a53 0%, #d80032 100%);
   color: #ffffff;
@@ -3402,7 +3403,8 @@ button, input, select, textarea {
   }
   .floating-vip-btn {
     bottom: 16px;
-    right: 12px;
+    left: 14px;
+    right: auto;
     padding: 9px 15px;
     font-size: 0.76rem;
     font-weight: 800;
@@ -3419,7 +3421,8 @@ button, input, select, textarea {
 @media (max-width: 480px) {
   .floating-vip-btn {
     bottom: 14px;
-    right: 10px;
+    left: 12px;
+    right: auto;
     padding: 8px 12px;
     font-size: 0.70rem;
     gap: 6px;
@@ -3434,7 +3437,8 @@ button, input, select, textarea {
 @media (max-width: 360px) {
   .floating-vip-btn {
     bottom: 12px;
-    right: 8px;
+    left: 8px;
+    right: auto;
     padding: 7px 10px;
     font-size: 0.65rem;
     gap: 5px;
