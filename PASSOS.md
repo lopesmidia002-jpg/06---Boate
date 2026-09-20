@@ -103,5 +103,9 @@
   - [x] Ajuste de todas as seções (Hero, Sobre, Eventos, DJs, Cardápio, Serviços, Reservas, Galeria, Depoimentos, Contato/FAQ e Rodapé) com largura estrita de 100%, preenchimentos proporcionais de 16px/12px e empilhamento limpo de grids.
   - [x] Otimização e enquadramento total do Painel Administrativo CMS (`admin/admin.css`) para dispositivos móveis com proteção de viewport.
 
+- [x] **Passo 17 (Prioridade Final - Concluído):** Remoção do Botão/Link "Painel Admin CMS" do Menu Mobile Off-Canvas:
+  - [x] Remoção do item de link `<li><a href="/admin" ...>Painel Admin CMS</a></li>` da gaveta de navegação mobile (`#mobile-menu-drawer`), mantendo a navegação móvel 100% voltada à experiência do visitante e cliente da boate.
+
+
 
 

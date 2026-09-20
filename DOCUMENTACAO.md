@@ -187,5 +187,7 @@ Acesse `http://localhost:3000` e `http://localhost:3000/admin`.
 - **Hero & Contagem Regressiva:** O card `.hero-countdown` passa a utilizar `max-width: 100%` com `flex: 1 1 0` em cada `.countdown-item`, sem `min-width` rígido que antes forçava o zoom out horizontal do navegador mobile.
 - **Canvas Contido:** O redimensionamento do canvas `#hero-particles-canvas` limita a largura máxima a `Math.min(parentWidth, document.documentElement.clientWidth || window.innerWidth)`.
 - **Grids e Modais:** Todos os grids (`.features-grid`, `.showcase-grid`, `.stats-grid`, `.events-grid`, `.djs-grid`, `.menu-items-grid`, `.services-grid`, `.tiers-grid`, `.reservation-grid`, `.gallery-grid`, `.testimonials-grid`, `.contact-layout-grid`, `.footer-grid`) adaptam-se para 1 coluna com quebra de linha fluida em telas `<= 768px`.
+- **Menu Mobile Limpo (Passo 17):** O item do "Painel Admin CMS" foi removido da navegação off-canvas para manter a experiência 100% voltada ao visitante final, preservando o acesso administrativo diretamente por `/admin` ou pelo link discreto do rodapé.
+
 
 
