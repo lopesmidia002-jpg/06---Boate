@@ -116,6 +116,7 @@ A aplicação é construída com tecnologias web nativas e modernas (HTML5 semâ
     - Sistema de upload de imagens multipart (`/api/upload`) via Multer.
     - Gerenciador de reservas de mesas e camarotes com alteração de status (`Pendente`, `Confirmado`, `Cancelado`) e exportação CSV.
     - Gerenciador de cadastros da Lista VIP e visualizador de mensagens do concierge.
+    - **Menu Mobile com Backdrop Blur:** Ao abrir o menu lateral no painel administrativo em smartphones ou tablets, uma camada de fundo (`.sidebar-backdrop`) com efeito de desfoque/embaçamento (`backdrop-filter: blur(14px)`) escurece e embaça todo o conteúdo de trás, fechando o menu automaticamente ao tocar fora.
     - **Pontos de Acesso Integrados na UI:** Botões de ação dispostos lado a lado no header principal (`.header-actions` com `.btn-admin-header-pill` em ciano neon e `.btn-vip-header-pill` em rosa neon, com altura uniforme de 42px), link destacado no menu mobile off-canvas (`.drawer-link-admin`) e link no rodapé da página.
 16. **Hidratador Dinâmico de Conteúdo (`js/content-loader.js`):**
     - Carregamento assíncrono de `/api/content` e injeção dinâmica de CSS variables no `:root`, títulos, logotipo/foto, contadores, cards rápidos, grade de eventos, DJs, cardápio de bebidas, valores de setores VIP, telefones, WhatsApp com link direto `wa.me`, e-mail e horários.

@@ -90,8 +90,10 @@
   - [x] Criação do [README.md](file:///c:/Users/Nilto/OneDrive/Documentos/Projeto%20imobiliario/06%20-%20Boate/README.md) completo com guia de execução Docker, credenciais, visão geral das 12 abas do CMS e documentação da REST API.
   - [x] Criação de scripts batch de inicialização rápida com 1 clique para Windows (`iniciar-docker.bat` e `iniciar-local.bat`).
   - [x] Inclusão dos botões de ação **`ADMIN`** (outline ciano neon) e **`RESERVAR VIP`** (filled rosa neon) dispostos lado a lado com mesmo alinhamento, altura (42px) e proporções no cabeçalho.
+  - [x] Implementação de backdrop com efeito de desfoque/embaçamento (`backdrop-filter: blur(14px)`) no fundo do painel administrativo ao abrir o menu lateral no modo mobile.
   - [x] Sincronização 100% dinâmica em tempo real no [js/content-loader.js](file:///c:/Users/Nilto/OneDrive/Documentos/Projeto%20imobiliario/06%20-%20Boate/js/content-loader.js) para todos os textos, fotos, cores da paleta neon, logotipo, eventos, DJs, cardápio, contatos e WhatsApp.
   - [x] Validação e encerramento de todas as etapas com 100% de sucesso.
+
 
 
 

@@ -59,17 +59,20 @@ const admin = {
       btn.addEventListener('click', () => {
         const targetTab = btn.getAttribute('data-tab');
         this.switchTab(targetTab);
-        // Fecha sidebar em mobile
-        document.getElementById('admin-sidebar')?.classList.remove('open');
+        // Fecha sidebar e remove blur em mobile
+        this.closeSidebar();
       });
     });
 
-    // Toggle Sidebar Mobile
+    // Controle de Sidebar Mobile & Backdrop Blur
     document.getElementById('toggle-sidebar-btn')?.addEventListener('click', () => {
-      document.getElementById('admin-sidebar')?.classList.toggle('open');
+      this.toggleSidebar();
     });
     document.getElementById('close-sidebar-btn')?.addEventListener('click', () => {
-      document.getElementById('admin-sidebar')?.classList.remove('open');
+      this.closeSidebar();
+    });
+    document.getElementById('sidebar-backdrop')?.addEventListener('click', () => {
+      this.closeSidebar();
     });
 
     // Salvar Tudo (Botão Topbar)
@@ -1135,6 +1138,29 @@ const admin = {
         btn.classList.remove('active');
       }
     });
+  },
+
+  // Controle de Sidebar & Backdrop Blur no Mobile
+  openSidebar() {
+    document.getElementById('admin-sidebar')?.classList.add('open');
+    document.getElementById('sidebar-backdrop')?.classList.add('active');
+  },
+
+  closeSidebar() {
+    document.getElementById('admin-sidebar')?.classList.remove('open');
+    document.getElementById('sidebar-backdrop')?.classList.remove('active');
+  },
+
+  toggleSidebar() {
+    const sidebar = document.getElementById('admin-sidebar');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (sidebar && sidebar.classList.contains('open')) {
+      sidebar.classList.remove('open');
+      backdrop?.classList.remove('active');
+    } else {
+      sidebar?.classList.add('open');
+      backdrop?.classList.add('active');
+    }
   },
 
   // Toast Notification
