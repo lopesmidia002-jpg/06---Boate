@@ -492,12 +492,14 @@ function initVipPopup() {
   const openPopup = () => {
     vipModal.classList.add('active');
     vipModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('vip-popup-open');
     document.body.style.overflow = 'hidden';
   };
 
   const closePopup = () => {
     vipModal.classList.remove('active');
     vipModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('vip-popup-open');
     document.body.style.overflow = '';
   };
 

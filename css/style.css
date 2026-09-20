@@ -3114,6 +3114,25 @@ button, input, select, textarea {
   filter: none;
 }
 
+/* Efeito de Embaçamento (Backdrop Blur) de todo o fundo do site quando o Popup VIP está ativo */
+body.vip-popup-open .site-header,
+body.vip-popup-open main,
+body.vip-popup-open .site-footer,
+body.vip-popup-open .canvas-container {
+  filter: blur(14px);
+  -webkit-filter: blur(14px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter var(--transition-normal);
+}
+
+body.vip-popup-open .floating-vip-btn {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
 .vip-popup-modal {
   position: fixed;
   inset: 0;
@@ -3121,10 +3140,10 @@ button, input, select, textarea {
   height: 100vh;
   max-width: 100%;
   max-height: 100%;
-  background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  z-index: 1200;
+  background: rgba(3, 4, 8, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
