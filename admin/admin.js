@@ -92,6 +92,32 @@ const admin = {
     this.bindColorPicker('color-bg-primary', 'color-bg-primary-hex');
     this.bindColorPicker('color-bg-card', 'color-bg-card-hex');
 
+    // Preview Interativo de Iluminação Neon
+    document.getElementById('color-preview-box')?.addEventListener('click', () => {
+      this.openNeonPreviewModal();
+    });
+    document.getElementById('close-neon-preview-btn')?.addEventListener('click', () => {
+      this.closeNeonPreviewModal();
+    });
+    document.getElementById('btn-save-from-preview')?.addEventListener('click', async () => {
+      await this.saveAllContent();
+      this.closeNeonPreviewModal();
+    });
+    document.getElementById('neon-preview-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'neon-preview-modal') this.closeNeonPreviewModal();
+    });
+    document.getElementById('admin-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'admin-modal') this.closeModal();
+    });
+
+    // Tecla ESC para fechar qualquer modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeModal();
+        this.closeNeonPreviewModal();
+      }
+    });
+
     // Logo Upload
     this.bindUpload('logo-file-input', 'logo-dropzone', (url) => {
       document.getElementById('input-logo-image-url').value = url;
@@ -156,20 +182,133 @@ const admin = {
       this.updateColorPreview();
     });
     hex.addEventListener('input', () => {
-      if (/^#[0-9A-F]{6}$/i.test(hex.value)) {
-        picker.value = hex.value;
-        this.updateColorPreview();
+      const val = hex.value.trim();
+      if (/^#[0-9A-F]{6}$/i.test(val)) {
+        picker.value = val;
       }
+      this.updateColorPreview();
+    });
+    hex.addEventListener('change', () => {
+      this.updateColorPreview();
     });
   },
 
   updateColorPreview() {
     const cyan = document.getElementById('color-neon-cyan')?.value || '#00deff';
     const pink = document.getElementById('color-neon-pink')?.value || '#f92056';
-    const preview = document.getElementById('color-preview-box');
-    if (preview) {
-      preview.style.background = `linear-gradient(135deg, ${pink} 0%, ${cyan} 100%)`;
-      preview.style.boxShadow = `0 5px 25px ${cyan}66`;
+    const bgPrimary = document.getElementById('color-bg-primary-hex')?.value || document.getElementById('color-bg-primary')?.value || '#07080c';
+    const bgCard = document.getElementById('color-bg-card-hex')?.value || document.getElementById('color-bg-card')?.value || '#121623';
+    const clubName = document.getElementById('input-club-name')?.value || 'Los Angeles Club';
+    const slogan = document.getElementById('input-club-slogan')?.value || 'Light Your Night & Vibe High';
+
+    const previewBtn = document.getElementById('color-preview-box');
+    if (previewBtn) {
+      previewBtn.style.background = `linear-gradient(135deg, ${pink} 0%, ${cyan} 100%)`;
+      previewBtn.style.boxShadow = `0 5px 25px ${cyan}66`;
+    }
+
+    // Aplica variáveis ao vivo no documento do Admin para feedback imediato
+    document.documentElement.style.setProperty('--neon-cyan', cyan);
+    document.documentElement.style.setProperty('--neon-pink', pink);
+    if (bgPrimary) document.documentElement.style.setProperty('--bg-primary', bgPrimary);
+    if (bgCard) document.documentElement.style.setProperty('--bg-card', bgCard);
+
+    // Atualiza elementos do modal de preview caso esteja aberto
+    const prevHeroBox = document.getElementById('prev-hero-box');
+    if (prevHeroBox) {
+      prevHeroBox.style.background = `radial-gradient(circle at 50% 30%, ${cyan}26 0%, ${bgPrimary} 70%)`;
+      prevHeroBox.style.borderColor = `${cyan}40`;
+      prevHeroBox.style.boxShadow = `0 0 25px ${cyan}26`;
+    }
+
+    const prevTitle = document.getElementById('prev-title');
+    if (prevTitle) {
+      prevTitle.textContent = clubName.toUpperCase();
+      prevTitle.style.textShadow = `0 0 15px ${cyan}99`;
+    }
+
+    const prevSubtitle = document.getElementById('prev-subtitle');
+    if (prevSubtitle) {
+      prevSubtitle.textContent = slogan.toUpperCase();
+      prevSubtitle.style.color = cyan;
+    }
+
+    const prevBadge = document.getElementById('prev-badge');
+    if (prevBadge) {
+      prevBadge.style.background = `${pink}26`;
+      prevBadge.style.borderColor = pink;
+      prevBadge.style.color = pink;
+      prevBadge.style.boxShadow = `0 0 12px ${pink}4d`;
+    }
+
+    const prevBtnMain = document.getElementById('prev-btn-main');
+    if (prevBtnMain) {
+      prevBtnMain.style.background = `linear-gradient(135deg, ${pink} 0%, ${cyan} 100%)`;
+      prevBtnMain.style.boxShadow = `0 4px 20px ${cyan}66`;
+    }
+
+    const prevBtnSecondary = document.getElementById('prev-btn-secondary');
+    if (prevBtnSecondary) {
+      prevBtnSecondary.style.borderColor = cyan;
+      prevBtnSecondary.style.boxShadow = `0 0 12px ${cyan}33`;
+    }
+
+    const prevIcon1 = document.getElementById('prev-icon-1');
+    if (prevIcon1) {
+      prevIcon1.style.color = cyan;
+      prevIcon1.style.textShadow = `0 0 10px ${cyan}`;
+    }
+
+    const prevIcon2 = document.getElementById('prev-icon-2');
+    if (prevIcon2) {
+      prevIcon2.style.color = pink;
+      prevIcon2.style.textShadow = `0 0 10px ${pink}`;
+    }
+
+    const prevStage = document.getElementById('neon-preview-stage');
+    if (prevStage) {
+      prevStage.style.background = bgPrimary;
+    }
+
+    const card1 = document.getElementById('prev-card-1');
+    const card2 = document.getElementById('prev-card-2');
+    if (card1) card1.style.background = bgCard;
+    if (card2) card2.style.background = bgCard;
+
+    const dotCyan = document.getElementById('prev-dot-cyan');
+    const valCyan = document.getElementById('prev-val-cyan');
+    if (dotCyan) dotCyan.style.background = cyan;
+    if (valCyan) valCyan.textContent = cyan;
+
+    const dotPink = document.getElementById('prev-dot-pink');
+    const valPink = document.getElementById('prev-val-pink');
+    if (dotPink) dotPink.style.background = pink;
+    if (valPink) valPink.textContent = pink;
+
+    const dotBg = document.getElementById('prev-dot-bg');
+    const valBg = document.getElementById('prev-val-bg');
+    if (dotBg) dotBg.style.background = bgPrimary;
+    if (valBg) valBg.textContent = bgPrimary;
+
+    const dotCard = document.getElementById('prev-dot-card');
+    const valCard = document.getElementById('prev-val-card');
+    if (dotCard) dotCard.style.background = bgCard;
+    if (valCard) valCard.textContent = bgCard;
+  },
+
+  openNeonPreviewModal() {
+    this.updateColorPreview();
+    const modal = document.getElementById('neon-preview-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      this.showToast('✨ Simulação da Iluminação Neon aberta!');
+    }
+  },
+
+  closeNeonPreviewModal() {
+    const modal = document.getElementById('neon-preview-modal');
+    if (modal) {
+      modal.classList.add('hidden');
     }
   },
 

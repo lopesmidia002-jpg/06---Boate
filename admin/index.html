@@ -317,10 +317,12 @@
                 </div>
               </div>
 
-              <!-- PREVIEW DE GRADIENTE -->
-              <div class="color-preview-box" id="color-preview-box">
+              <!-- PREVIEW DE GRADIENTE / BOTÃO DE TESTE INTERATIVO -->
+              <button type="button" class="color-preview-box" id="color-preview-box" title="Clique para abrir o simulador ao vivo de iluminação e cores neon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span>PREVIEW DA ILUMINAÇÃO NEON</span>
-              </div>
+                <span class="preview-box-hint">(Clique para testar e ver a simulação ao vivo)</span>
+              </button>
             </div>
 
             <!-- LOGO & NOMES -->
@@ -778,6 +780,85 @@
       <div class="modal-footer">
         <button type="button" id="btn-modal-cancel" class="btn-secondary">Cancelar</button>
         <button type="button" id="btn-modal-save" class="btn-primary-neon">Salvar Item</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL DE SIMULAÇÃO & PREVIEW DA ILUMINAÇÃO NEON
+       ========================================================================= -->
+  <div id="neon-preview-modal" class="admin-modal-overlay hidden">
+    <div class="admin-modal-card glass-panel modal-preview-wide">
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa-solid fa-wand-magic-sparkles text-neon-cyan"></i> Simulação da Iluminação Neon & Visual da Casa</h4>
+        <button id="close-neon-preview-btn" class="modal-close-btn" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p class="preview-description">
+          Pré-visualização em tempo real dos efeitos de iluminação, contraste, badges e gradientes aplicados com base nas cores configuradas no painel.
+        </p>
+
+        <div class="neon-preview-stage" id="neon-preview-stage">
+          <!-- Banner Hero com Neon Glow -->
+          <div class="preview-hero-box" id="prev-hero-box">
+            <span class="preview-badge" id="prev-badge"><i class="fa-solid fa-crown"></i> VIP EXPERIENCE</span>
+            <h2 class="preview-title" id="prev-title">LOS ANGELES CLUB</h2>
+            <p class="preview-subtitle" id="prev-subtitle">LIGHT YOUR NIGHT &amp; VIBE HIGH</p>
+            <div class="preview-buttons-row">
+              <button type="button" class="preview-btn-main" id="prev-btn-main"><i class="fa-solid fa-ticket"></i> Comprar Ingressos</button>
+              <button type="button" class="preview-btn-secondary" id="prev-btn-secondary"><i class="fa-solid fa-champagne-glasses"></i> Reservar Camarote</button>
+            </div>
+          </div>
+
+          <!-- Cards de Exemplo -->
+          <div class="preview-cards-grid">
+            <div class="preview-card" id="prev-card-1">
+              <div class="prev-card-header">
+                <i class="fa-solid fa-compact-disc prev-icon-cyan" id="prev-icon-1"></i>
+                <span class="prev-tag">DJ Lineup</span>
+              </div>
+              <h5>Efeito Neon Primário</h5>
+              <p>Iluminação de alta intensidade com gradientes e reflexos estroboscópicos.</p>
+            </div>
+
+            <div class="preview-card" id="prev-card-2">
+              <div class="prev-card-header">
+                <i class="fa-solid fa-martini-glass-citrus prev-icon-pink" id="prev-icon-2"></i>
+                <span class="prev-tag">Cardápio VIP</span>
+              </div>
+              <h5>Efeito Neon Secundário</h5>
+              <p>Realces magenta vibrantes para botões de conversão e elementos de destaque.</p>
+            </div>
+          </div>
+
+          <!-- Paleta de Cores Atual -->
+          <div class="preview-palette-summary">
+            <div class="palette-item">
+              <span class="palette-dot" id="prev-dot-cyan"></span>
+              <span class="palette-name">Neon Primário:</span>
+              <strong id="prev-val-cyan">#00deff</strong>
+            </div>
+            <div class="palette-item">
+              <span class="palette-dot" id="prev-dot-pink"></span>
+              <span class="palette-name">Neon Secundário:</span>
+              <strong id="prev-val-pink">#f92056</strong>
+            </div>
+            <div class="palette-item">
+              <span class="palette-dot" id="prev-dot-bg"></span>
+              <span class="palette-name">Fundo Principal:</span>
+              <strong id="prev-val-bg">#07080c</strong>
+            </div>
+            <div class="palette-item">
+              <span class="palette-dot" id="prev-dot-card"></span>
+              <span class="palette-name">Fundo Cards:</span>
+              <strong id="prev-val-card">#121623</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="/" target="_blank" class="btn-secondary"><i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir Site Público</a>
+        <button type="button" id="btn-save-from-preview" class="btn-primary-neon"><i class="fa-solid fa-floppy-disk"></i> Salvar e Aplicar no Site</button>
       </div>
     </div>
   </div>

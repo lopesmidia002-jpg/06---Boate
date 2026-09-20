@@ -202,6 +202,14 @@ Acesse `http://localhost:3000` e `http://localhost:3000/admin`.
 - **Alinhamento Centralizado Global:** Criação dos utilitários `.text-center`, `.text-left` e `.text-right`.
 - **Setores da Casa (`.tiers-heading`):** Estruturado com `display: flex; flex-direction: column; align-items: center; justify-content: center;` tanto para desktop quanto para mobile, garantindo que o badge "Escolha Sua Experiência" e o título "Setores da Casa" fiquem 100% alinhados no centro horizontal da tela.
 
+---
+
+## 11. Botão de Preview Neon e Modal de Simulação no CMS (Passo 20)
+- **Botão Interativo de Preview:** O elemento `.color-preview-box` foi transformado em um componente acionável (`<button>`) com efeitos táteis de clique, hover com iluminação estroboscópica e ícone de varinha mágica.
+- **Modal de Simulação Visual (`#neon-preview-modal`):** Exibe em tempo real o reflexo dos tons neon selecionados sobre elementos centrais do site (título da casa com glow dinâmico, slogan oficial, badges, botões primários/secundários e cards de DJs/drinks).
+- **Propagação Imediata no DOM:** As alterações de cores são propagadas para as variáveis `:root` (`--neon-cyan`, `--neon-pink`, `--bg-primary`, `--bg-card`) instantaneamente, proporcionando feedback visual imediato ao administrador.
+
+
 
 
 

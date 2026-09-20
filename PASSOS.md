@@ -111,9 +111,12 @@
   - [x] Otimização e alinhamento tipográfico de todos os valores de preço (`.tier-val`, `.tier-pricing`, `.total-amount`, `.price-value`), garantindo legibilidade e proporção em celulares (`1.35rem / 1.25rem / 1.15rem`).
   - [x] Ajuste e enquadramento ergonômico dos modais popup (Lista VIP e Ingressos) com centralização automática, bordas arredondadas e tamanhos proporcionais.
 
-- [x] **Passo 19 (Prioridade Alta - Concluído):** Centralização Completa do Cabeçalho e Badge de Setores da Casa no Mobile:
-  - [x] Criação de classes utilitárias de alinhamento (`.text-center`, `.text-left`, `.text-right`) no sistema de design.
-  - [x] Centralização perfeita do bloco de título e badge `.tiers-heading` ("Escolha Sua Experiência" e "Setores da Casa") com `display: flex; flex-direction: column; align-items: center; justify-content: center;` tanto no modo desktop quanto no modo mobile.
+- [x] **Passo 20 (Prioridade Alta - Concluído):** Interatividade do Botão de Preview Neon e Modal de Simulação no Painel CMS:
+  - [x] Transformação do box estático de gradiente em um botão de ação interativo (`.color-preview-box`) com feedback tátil, hover glow, ícone de varinha mágica e instrução de clique.
+  - [x] Implementação do **Modal de Simulação da Iluminação Neon & Visual da Casa** (`#neon-preview-modal`), exibindo em tempo real banner hero estilizado, cards demonstrativos, botões primários/secundários com glow e resumo das cores ativas (HEX e RGBA).
+  - [x] Atualização dinâmica e bidirecional em tempo real de seletores nativos de cor, inputs hex/rgba e propagação imediata das variáveis CSS (`--neon-cyan`, `--neon-pink`, `--bg-primary`, `--bg-card`) no documento.
+  - [x] Sincronização e rebuild completo do container Docker.
+
 
 
 
