@@ -91,13 +91,6 @@
   - [x] Criação de scripts batch de inicialização rápida com 1 clique para Windows (`iniciar-docker.bat` e `iniciar-local.bat`).
   - [x] Remoção do botão de Admin do cabeçalho público para manter o design focado no visitante, preservando acesso ao painel via `/admin` e no rodapé.
   - [x] Implementação de backdrop com efeito de desfoque/embaçamento (`backdrop-filter: blur(14px)`) no fundo do painel administrativo ao abrir o menu lateral no modo mobile.
-  - [x] Refinamento do botão flutuante **Lista VIP 20% OFF** no modo mobile (`.floating-vip-btn`) com dimensões compactas, tipografia proporcional, bordas neon com blur e posicionamento harmônico sem sobrepor o conteúdo.
+  - [x] Otimização visual e responsiva completa do botão flutuante **Lista VIP 20% OFF** no modo mobile (`.floating-vip-btn`) com gradiente de alto contraste, coroa dourada brilhante, animação pulsante suave `@keyframes vipFloatPulse`, enquadramento `max-width: calc(100vw - 24px)` e margens seguras anti-corte em todas as telas (de 320px a 640px+).
   - [x] Sincronização 100% dinâmica em tempo real no [js/content-loader.js](file:///c:/Users/Nilto/OneDrive/Documentos/Projeto%20imobiliario/06%20-%20Boate/js/content-loader.js) para todos os textos, fotos, cores da paleta neon, logotipo, eventos, DJs, cardápio, contatos e WhatsApp.
-  - [x] Validação e encerramento de todas as etapas com 100% de sucesso.
-
-
-
-
-
-
 
