@@ -95,3 +95,13 @@
   - [x] Otimização visual e responsiva completa dos **Banners de Apresentação / Destaque** (`.hero-features-bar` / `.features-grid` / `.feature-card`): transição inteligente de 3 colunas para coluna única empilhada e compacta em tablets e celulares, alturas proporcionais (`110px / 98px`), tipografia escalonada e enquadramento 100% visível sem cortes laterais.
   - [x] Sincronização 100% dinâmica em tempo real no [js/content-loader.js](file:///c:/Users/Nilto/OneDrive/Documentos/Projeto%20imobiliario/06%20-%20Boate/js/content-loader.js) para todos os textos, fotos, cores da paleta neon, logotipo, eventos, DJs, cardápio, contatos e WhatsApp.
 
+- [x] **Passo 16 (Prioridade Crítica - Concluído):** Correção Completa do Enquadramento e Viewport de Todas as Páginas no Modo Mobile:
+  - [x] Eliminação de vazamento horizontal (`overflow-x: hidden`) em `html`, `body`, `#main-content`, `section`, containers e modais.
+  - [x] Correção do card de contagem regressiva da Hero (`.hero-countdown` / `.countdown-grid` / `.countdown-item`), eliminando a largura mínima estática que forçava o zoom out e o espaço vazio preto lateral no mobile.
+  - [x] Adequação do cabeçalho (`.site-header`), logotipo e botão VIP (`.header-actions .btn`) para distribuição harmônica sem empurrar a viewport em telas de 320px a 768px.
+  - [x] Redimensionamento e contenção dinâmica do Canvas de partículas (`hero-particles-canvas`) limitado estritamente à largura do cliente (`document.documentElement.clientWidth`).
+  - [x] Ajuste de todas as seções (Hero, Sobre, Eventos, DJs, Cardápio, Serviços, Reservas, Galeria, Depoimentos, Contato/FAQ e Rodapé) com largura estrita de 100%, preenchimentos proporcionais de 16px/12px e empilhamento limpo de grids.
+  - [x] Otimização e enquadramento total do Painel Administrativo CMS (`admin/admin.css`) para dispositivos móveis com proteção de viewport.
+
+
+

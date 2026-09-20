@@ -179,3 +179,13 @@ Acesse `http://localhost:3000` e `http://localhost:3000/admin`.
 - A cada conclusão de passo, o checklist em `PASSOS.md` deve ser marcado e aguardar aprovação do usuário para a próxima etapa.
 - Toda resposta de conclusão deve conter o formato de commit padronizado.
 
+---
+
+## 8. Arquitetura de Enquadramento Mobile (Passo 16)
+- **Contenção Estrita de Viewport:** `html` e `body` possuem `width: 100% !important`, `max-width: 100% !important` e `overflow-x: hidden !important`, com `box-sizing: border-box` global e `-webkit-text-size-adjust: 100%`.
+- **Preenchimento Lateral Uniforme:** Classes `.container` e `.container-fluid` utilizam padding lateral proporcional (`16px` em tablets e celulares, `12px` em telas até 480px e `10px` em telas até 360px), eliminando completamente margens negativas e colunas pretas laterais vazias.
+- **Hero & Contagem Regressiva:** O card `.hero-countdown` passa a utilizar `max-width: 100%` com `flex: 1 1 0` em cada `.countdown-item`, sem `min-width` rígido que antes forçava o zoom out horizontal do navegador mobile.
+- **Canvas Contido:** O redimensionamento do canvas `#hero-particles-canvas` limita a largura máxima a `Math.min(parentWidth, document.documentElement.clientWidth || window.innerWidth)`.
+- **Grids e Modais:** Todos os grids (`.features-grid`, `.showcase-grid`, `.stats-grid`, `.events-grid`, `.djs-grid`, `.menu-items-grid`, `.services-grid`, `.tiers-grid`, `.reservation-grid`, `.gallery-grid`, `.testimonials-grid`, `.contact-layout-grid`, `.footer-grid`) adaptam-se para 1 coluna com quebra de linha fluida em telas `<= 768px`.
+
+

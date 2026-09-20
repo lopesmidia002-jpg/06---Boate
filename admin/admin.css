@@ -1304,20 +1304,43 @@ body.admin-body {
 }
 
 @media (max-width: 640px) {
+  html, body.admin-body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .admin-main {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
   .admin-topbar {
-    padding: 0 16px;
+    padding: 0 14px;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .admin-content-container {
-    padding: 20px 15px;
+    padding: 16px 12px;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .quick-cards-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .items-list-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .form-row {
@@ -1334,5 +1357,29 @@ body.admin-body {
 
   .btn-save-glow {
     padding: 9px 12px;
+  }
+
+  .admin-modal-card {
+    padding: 0;
+    max-width: 100% !important;
+    margin: 10px;
+  }
+
+  .modal-header, .modal-body, .modal-footer {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 24px 16px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
   }
 }

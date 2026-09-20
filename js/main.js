@@ -175,8 +175,10 @@ function initHeroParticles() {
   const colors = ['#00deff', '#f92056', '#a855f7', '#ffffff'];
 
   function resize() {
-    width = canvas.width = canvas.parentElement.offsetWidth;
-    height = canvas.height = canvas.parentElement.offsetHeight;
+    const parentWidth = canvas.parentElement ? canvas.parentElement.offsetWidth : window.innerWidth;
+    const maxClientWidth = document.documentElement.clientWidth || window.innerWidth;
+    width = canvas.width = Math.min(parentWidth, maxClientWidth);
+    height = canvas.height = canvas.parentElement ? canvas.parentElement.offsetHeight : window.innerHeight;
   }
 
   window.addEventListener('resize', resize, { passive: true });
