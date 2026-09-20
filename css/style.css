@@ -196,6 +196,19 @@ section, main, header, footer {
   justify-content: space-between;
 }
 
+/* Text Utilities & Alignments */
+.text-center {
+  text-align: center !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
 /* Text Stylings */
 .font-accent {
   font-family: var(--font-accent);
@@ -2152,7 +2165,13 @@ section, main, header, footer {
 }
 
 .tiers-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 45px;
+  width: 100%;
 }
 
 .tiers-title {
@@ -4093,11 +4112,24 @@ body.vip-popup-open .floating-vip-btn {
   }
 
   .tiers-heading {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
     margin-bottom: 25px !important;
+    width: 100% !important;
+  }
+
+  .tiers-heading .badge-neon {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .tiers-title {
     font-size: 1.8rem !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .tiers-grid {

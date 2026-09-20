@@ -52,6 +52,7 @@ Os templates originais contemplam os seguintes componentes chave:
   - `Passo 16`: Correção e alinhamento total do enquadramento em todas as páginas e seções no modo mobile (eliminação de vazamentos horizontais, correção da largura mínima do timer de contagem regressiva, contenção do Canvas de partículas, padding harmônico de containers e empilhamento perfeito de grids sem espaço vazio lateral).
   - `Passo 17`: Remoção do botão de acesso ao Painel Admin CMS do menu mobile off-canvas (`#mobile-menu-drawer`), mantendo a navegação do usuário final totalmente limpa e profissional.
   - `Passo 18`: Correção do enquadramento dos modais popups (Lista VIP e Ingressos) e alinhamento visual dos cards de preços no modo mobile (eliminação da sobreposição do badge "Mais Escolhido" com a categoria e tipografia balanceada para valores de ingressos e camarotes).
+  - `Passo 19`: Centralização completa do cabeçalho da seção Setores da Casa (`.tiers-heading`), alinhando perfeitamente o badge neon e o título no centro da tela em dispositivos móveis e desktops.
 
 ---
 

@@ -111,6 +111,11 @@
   - [x] Otimização e alinhamento tipográfico de todos os valores de preço (`.tier-val`, `.tier-pricing`, `.total-amount`, `.price-value`), garantindo legibilidade e proporção em celulares (`1.35rem / 1.25rem / 1.15rem`).
   - [x] Ajuste e enquadramento ergonômico dos modais popup (Lista VIP e Ingressos) com centralização automática, bordas arredondadas e tamanhos proporcionais.
 
+- [x] **Passo 19 (Prioridade Alta - Concluído):** Centralização Completa do Cabeçalho e Badge de Setores da Casa no Mobile:
+  - [x] Criação de classes utilitárias de alinhamento (`.text-center`, `.text-left`, `.text-right`) no sistema de design.
+  - [x] Centralização perfeita do bloco de título e badge `.tiers-heading` ("Escolha Sua Experiência" e "Setores da Casa") com `display: flex; flex-direction: column; align-items: center; justify-content: center;` tanto no modo desktop quanto no modo mobile.
+
+
 
 
 

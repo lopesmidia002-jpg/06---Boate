@@ -196,6 +196,13 @@ Acesse `http://localhost:3000` e `http://localhost:3000/admin`.
 - **Hierarquia Visual de Preços:** Os valores de preço (`.tier-val`, `.total-amount`, `.price-value`) foram redimensionados para escalas harmoniosas no mobile (`1.35rem` a `1.15rem`), com espaçamentos simétricos e suporte à quebra de linha sem deformar os cards.
 - **Enquadramento dos Popups:** Os modais da Lista VIP e Compra de Ingressos possuem dimensões ergonômicas, bordas suaves de `16px` e centralização vertical/horizontal em todas as resoluções móveis.
 
+---
+
+## 10. Centralização dos Títulos de Seção e Badges no Mobile (Passo 19)
+- **Alinhamento Centralizado Global:** Criação dos utilitários `.text-center`, `.text-left` e `.text-right`.
+- **Setores da Casa (`.tiers-heading`):** Estruturado com `display: flex; flex-direction: column; align-items: center; justify-content: center;` tanto para desktop quanto para mobile, garantindo que o badge "Escolha Sua Experiência" e o título "Setores da Casa" fiquem 100% alinhados no centro horizontal da tela.
+
+
 
 
 
