@@ -48,7 +48,7 @@ Os templates originais contemplam os seguintes componentes chave:
   - `Passos 10 a 12`: Sistema interativo de reserva com emissão de voucher, Galeria de fotos com lightbox em tela cheia, Depoimentos, FAQ Sanfonado, Contato, Popup VIP 20% OFF e Rodapé rico de 4 colunas.
   - `Passo 13`: Validação completa de responsividade (Mobile/Tablet/Desktop), acessibilidade, integridade de todas as URLs de imagens CDN e otimização de performance.
   - `Passo 14`: Painel Administrativo CMS Completo (`/admin`), Autenticação JWT (`admin`/`admin123`), Uploads de fotos/logos, Customização dinâmica em tempo real de textos, fotos, cores e dados, e Containerização 100% pronta em Docker & Docker Compose.
-  - `Passo 15`: Documentação de Entrega, Manual do Administrador (`README.md`), scripts de inicialização com 1 clique (`iniciar-docker.bat`, `iniciar-local.bat`), botões de ação **`ADMIN`** e **`RESERVAR VIP`** dispostos lado a lado com alinhamento e proporções uniformes, backdrop com efeito de blur embaçado no menu mobile do admin e sincronização 100% dinâmica em tempo real no site público para todas as alterações de textos, fotos, cores, logotipo e contatos.
+  - `Passo 15`: Documentação de Entrega, Manual do Administrador (`README.md`), scripts de inicialização com 1 clique (`iniciar-docker.bat`, `iniciar-local.bat`), cabeçalho público limpo com foco no visitante (acesso administrativo reservado via `/admin` e no rodapé), backdrop com efeito de blur embaçado no menu mobile do admin e sincronização 100% dinâmica em tempo real no site público para todas as alterações de textos, fotos, cores, logotipo e contatos.
 
 ---
 
