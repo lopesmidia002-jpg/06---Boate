@@ -2178,7 +2178,9 @@ section, main, header, footer {
   justify-content: space-between;
   position: relative;
   border-color: var(--border-glass);
+  border-radius: var(--radius-lg);
   transition: var(--transition-normal);
+  box-sizing: border-box;
 }
 
 .tier-box:hover {
@@ -2191,6 +2193,7 @@ section, main, header, footer {
   box-shadow: 0 0 40px rgba(249, 32, 86, 0.35);
   transform: scale(1.04);
   z-index: 2;
+  padding-top: 48px;
 }
 
 .tier-box.popular:hover {
@@ -2199,7 +2202,7 @@ section, main, header, footer {
 
 .popular-ribbon {
   position: absolute;
-  top: -14px;
+  top: -13px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--neon-pink);
@@ -2208,9 +2211,11 @@ section, main, header, footer {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  padding: 4px 18px;
+  padding: 5px 20px;
   border-radius: var(--radius-full);
   box-shadow: var(--neon-pink-glow);
+  white-space: nowrap;
+  z-index: 10;
 }
 
 .tier-header {
@@ -2220,39 +2225,48 @@ section, main, header, footer {
   text-align: center;
 }
 
+.tier-box.popular .tier-tag {
+  margin-top: 6px;
+}
+
 .tier-tag {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--text-muted);
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .tier-name-large {
   font-size: 1.6rem;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   color: var(--text-main);
+  line-height: 1.2;
 }
 
 .tier-pricing {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 6px;
 }
 
 .tier-val {
-  font-size: 1.8rem;
+  font-size: 1.65rem;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  word-break: break-word;
 }
 
 .tier-per {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-dim);
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .tier-features {
@@ -4064,23 +4078,31 @@ body.vip-popup-open .floating-vip-btn {
     width: 100% !important;
   }
 
-  /* Services & Tiers */
+  /* Services & Tiers Mobile */
   .services-grid {
     grid-template-columns: 1fr !important;
     gap: 18px !important;
     width: 100% !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 35px !important;
   }
 
   .service-card {
-    padding: 24px 18px !important;
+    padding: 22px 16px !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
+  .tiers-heading {
+    margin-bottom: 25px !important;
+  }
+
+  .tiers-title {
+    font-size: 1.8rem !important;
+  }
+
   .tiers-grid {
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
+    gap: 24px !important;
     width: 100% !important;
   }
 
@@ -4089,14 +4111,70 @@ body.vip-popup-open .floating-vip-btn {
     width: 100% !important;
     transform: none !important;
     box-sizing: border-box !important;
+    border-radius: 14px !important;
   }
 
   .tier-box.popular {
     transform: none !important;
+    padding-top: 42px !important;
+    border-color: var(--neon-pink) !important;
   }
 
   .tier-box.popular:hover {
     transform: translateY(-4px) !important;
+  }
+
+  .popular-ribbon {
+    top: -12px !important;
+    font-size: 0.70rem !important;
+    padding: 5px 16px !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap !important;
+    z-index: 10 !important;
+  }
+
+  .tier-header {
+    margin-bottom: 16px !important;
+    padding-bottom: 14px !important;
+  }
+
+  .tier-box.popular .tier-tag {
+    margin-top: 8px !important;
+  }
+
+  .tier-tag {
+    font-size: 0.72rem !important;
+    letter-spacing: 1.2px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .tier-name-large {
+    font-size: 1.35rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2 !important;
+  }
+
+  .tier-pricing {
+    margin-top: 6px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .tier-val {
+    font-size: 1.35rem !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+
+  .tier-per {
+    font-size: 0.76rem !important;
+    margin-top: 4px !important;
+  }
+
+  .tier-features {
+    gap: 10px !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 22px !important;
   }
 
   /* Reservations */
@@ -4266,12 +4344,27 @@ body.vip-popup-open .floating-vip-btn {
   }
 
   /* Modals Ticket & Popup */
+  .modal-backdrop {
+    padding: 14px 10px !important;
+  }
+
   .modal-card {
-    padding: 20px 15px !important;
+    padding: 22px 16px !important;
     width: 100% !important;
-    max-width: 100% !important;
-    max-height: 94vh !important;
+    max-width: 460px !important;
+    max-height: 92vh !important;
     box-sizing: border-box !important;
+    border-radius: 16px !important;
+  }
+
+  .modal-event-name {
+    font-size: 1.18rem !important;
+    margin-top: 4px !important;
+    line-height: 1.25 !important;
+  }
+
+  .modal-event-date {
+    font-size: 0.82rem !important;
   }
 
   .ticket-types-grid {
@@ -4279,40 +4372,70 @@ body.vip-popup-open .floating-vip-btn {
     gap: 8px !important;
   }
 
+  .tier-card {
+    padding: 10px 14px !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .tier-name {
+    font-size: 0.82rem !important;
+  }
+
+  .tier-price {
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+  }
+
+  .total-amount {
+    font-size: 1.45rem !important;
+  }
+
   /* VIP Modal Mobile */
   .vip-popup-modal {
-    padding: 12px 10px !important;
+    padding: 16px 12px !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .vip-popup-card {
-    max-width: 100% !important;
+    max-width: 440px !important;
     width: 100% !important;
-    padding: 22px 15px 18px !important;
-    border-radius: 14px !important;
+    padding: 24px 18px 20px !important;
+    border-radius: 16px !important;
     box-sizing: border-box !important;
+    margin: auto !important;
+    box-shadow: 0 0 35px rgba(249, 32, 86, 0.45) !important;
   }
 
   .vip-popup-title {
-    font-size: 1.15rem !important;
+    font-size: 1.2rem !important;
     line-height: 1.25 !important;
   }
 
   .vip-popup-desc {
-    font-size: 0.78rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+  }
+
+  #vip-guestlist-form .form-label {
+    font-size: 0.72rem !important;
+    margin-bottom: 4px !important;
   }
 
   #vip-guestlist-form .form-input {
-    padding: 9px 12px !important;
-    font-size: 0.82rem !important;
+    padding: 10px 12px !important;
+    font-size: 0.85rem !important;
   }
 
   #vip-guestlist-form .modal-submit-btn {
-    padding: 10px 12px !important;
-    font-size: 0.80rem !important;
+    padding: 11px 14px !important;
+    font-size: 0.82rem !important;
   }
 }
 
@@ -4368,17 +4491,21 @@ body.vip-popup-open .floating-vip-btn {
     font-size: 0.74rem !important;
   }
 
+  .tier-val {
+    font-size: 1.25rem !important;
+  }
+
   .vip-popup-card {
-    padding: 18px 12px 14px !important;
-    border-radius: 12px !important;
+    padding: 20px 14px 16px !important;
+    border-radius: 14px !important;
   }
 
   .vip-popup-title {
-    font-size: 1.05rem !important;
+    font-size: 1.1rem !important;
   }
 
   .vip-popup-desc {
-    font-size: 0.74rem !important;
+    font-size: 0.78rem !important;
   }
 }
 
@@ -4407,5 +4534,9 @@ body.vip-popup-open .floating-vip-btn {
 
   .countdown-number {
     font-size: 1.2rem !important;
+  }
+
+  .tier-val {
+    font-size: 1.15rem !important;
   }
 }

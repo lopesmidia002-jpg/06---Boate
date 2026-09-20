@@ -189,5 +189,13 @@ Acesse `http://localhost:3000` e `http://localhost:3000/admin`.
 - **Grids e Modais:** Todos os grids (`.features-grid`, `.showcase-grid`, `.stats-grid`, `.events-grid`, `.djs-grid`, `.menu-items-grid`, `.services-grid`, `.tiers-grid`, `.reservation-grid`, `.gallery-grid`, `.testimonials-grid`, `.contact-layout-grid`, `.footer-grid`) adaptam-se para 1 coluna com quebra de linha fluida em telas `<= 768px`.
 - **Menu Mobile Limpo (Passo 17):** O item do "Painel Admin CMS" foi removido da navegação off-canvas para manter a experiência 100% voltada ao visitante final, preservando o acesso administrativo diretamente por `/admin` ou pelo link discreto do rodapé.
 
+---
+
+## 9. Enquadramento de Preços e Modais Popups (Passo 18)
+- **Desacoplamento do Badge "Mais Escolhido":** O card `.tier-box.popular` recebeu padding superior dedicado (`padding-top: 48px` / `42px` no mobile) e margem de segurança no texto de categoria (`.tier-tag`), eliminando qualquer sobreposição visual.
+- **Hierarquia Visual de Preços:** Os valores de preço (`.tier-val`, `.total-amount`, `.price-value`) foram redimensionados para escalas harmoniosas no mobile (`1.35rem` a `1.15rem`), com espaçamentos simétricos e suporte à quebra de linha sem deformar os cards.
+- **Enquadramento dos Popups:** Os modais da Lista VIP e Compra de Ingressos possuem dimensões ergonômicas, bordas suaves de `16px` e centralização vertical/horizontal em todas as resoluções móveis.
+
+
 
 

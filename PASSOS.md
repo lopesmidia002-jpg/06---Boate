@@ -106,6 +106,12 @@
 - [x] **Passo 17 (Prioridade Final - Concluído):** Remoção do Botão/Link "Painel Admin CMS" do Menu Mobile Off-Canvas:
   - [x] Remoção do item de link `<li><a href="/admin" ...>Painel Admin CMS</a></li>` da gaveta de navegação mobile (`#mobile-menu-drawer`), mantendo a navegação móvel 100% voltada à experiência do visitante e cliente da boate.
 
+- [x] **Passo 18 (Prioridade Crítica - Concluído):** Correção do Enquadramento dos Popups e Organização dos Cards/Valores de Preço no Mobile:
+  - [x] Correção do badge flutuante "Mais Escolhido" (`.popular-ribbon`) no card Mezanino VIP (`.tier-box.popular`), eliminando a sobreposição com o texto de categoria (`.tier-tag` "Experiência VIP") com padding e margens superiores adequadas.
+  - [x] Otimização e alinhamento tipográfico de todos os valores de preço (`.tier-val`, `.tier-pricing`, `.total-amount`, `.price-value`), garantindo legibilidade e proporção em celulares (`1.35rem / 1.25rem / 1.15rem`).
+  - [x] Ajuste e enquadramento ergonômico dos modais popup (Lista VIP e Ingressos) com centralização automática, bordas arredondadas e tamanhos proporcionais.
+
+
 
 
 
