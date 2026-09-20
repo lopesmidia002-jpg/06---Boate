@@ -3495,50 +3495,62 @@ body.vip-popup-open .floating-vip-btn {
     text-align: center;
   }
   .floating-vip-btn {
-    bottom: 16px;
-    right: 14px;
-    left: auto;
-    padding: 9px 15px;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.4px;
-    gap: 7px;
-    max-width: calc(100vw - 24px);
-    box-shadow: 0 4px 18px rgba(249, 32, 86, 0.75), 0 0 10px rgba(249, 32, 86, 0.5);
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 16px !important;
+    left: auto !important;
+    padding: 11px 18px !important;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    gap: 8px !important;
+    max-width: calc(100vw - 24px) !important;
+    border-radius: var(--radius-full) !important;
+    background: linear-gradient(135deg, #ff1a53 0%, #d80032 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 6px 25px rgba(249, 32, 86, 0.85), 0 0 15px rgba(249, 32, 86, 0.6) !important;
+    z-index: 9999 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
   }
   .floating-vip-btn i {
-    font-size: 0.85rem;
+    font-size: 0.95rem !important;
+    color: #ffd700 !important;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.9)) !important;
   }
 }
 
 @media (max-width: 480px) {
   .floating-vip-btn {
-    bottom: 14px;
-    right: 12px;
-    left: auto;
-    padding: 8px 12px;
-    font-size: 0.70rem;
-    gap: 6px;
-    letter-spacing: 0.2px;
-    max-width: calc(100vw - 20px);
+    bottom: 18px !important;
+    right: 12px !important;
+    left: auto !important;
+    padding: 10px 15px !important;
+    font-size: 0.78rem !important;
+    gap: 7px !important;
+    letter-spacing: 0.3px !important;
+    max-width: calc(100vw - 20px) !important;
   }
   .floating-vip-btn i {
-    font-size: 0.78rem;
+    font-size: 0.88rem !important;
   }
 }
 
 @media (max-width: 360px) {
   .floating-vip-btn {
-    bottom: 12px;
-    right: 8px;
-    left: auto;
-    padding: 7px 10px;
-    font-size: 0.65rem;
-    gap: 5px;
-    max-width: calc(100vw - 16px);
+    bottom: 15px !important;
+    right: 8px !important;
+    left: auto !important;
+    padding: 9px 13px !important;
+    font-size: 0.72rem !important;
+    gap: 6px !important;
+    max-width: calc(100vw - 16px) !important;
   }
   .floating-vip-btn i {
-    font-size: 0.72rem;
+    font-size: 0.82rem !important;
   }
 }
 
