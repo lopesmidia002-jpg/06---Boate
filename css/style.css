@@ -3128,6 +3128,8 @@ button, input, select, textarea {
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-normal);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .vip-popup-modal.active {
@@ -3136,25 +3138,35 @@ button, input, select, textarea {
 }
 
 .vip-popup-card {
-  max-width: 520px;
+  max-width: 500px;
   width: 100%;
-  padding: 40px 35px;
+  padding: 36px 32px;
   position: relative;
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 50px rgba(249, 32, 86, 0.35);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--neon-pink);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 50px rgba(249, 32, 86, 0.4);
   animation: floatElement 0.35s ease-out;
+  box-sizing: border-box;
+  margin: auto;
 }
 
 .vip-popup-close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--text-muted);
   cursor: pointer;
   transition: var(--transition-fast);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  z-index: 10;
 }
 
 .vip-popup-close:hover {
@@ -3163,21 +3175,73 @@ button, input, select, textarea {
 }
 
 .vip-popup-header {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .vip-popup-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-top: 10px;
   color: var(--text-main);
+  line-height: 1.25;
 }
 
 .vip-popup-desc {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 6px;
   line-height: 1.45;
+}
+
+#vip-guestlist-form .form-group {
+  margin-bottom: 14px;
+}
+
+#vip-guestlist-form .form-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+#vip-guestlist-form .form-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-glass-strong);
+  border: 1px solid var(--border-glass-light);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.92rem;
+  transition: var(--transition-fast);
+  box-sizing: border-box;
+}
+
+#vip-guestlist-form .form-input:focus {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 15px rgba(249, 32, 86, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#vip-guestlist-form .form-input option {
+  background: var(--bg-secondary);
+  color: var(--text-main);
+}
+
+#vip-guestlist-form .modal-submit-btn {
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
 }
 
 .vip-pass-result {
@@ -3515,6 +3579,60 @@ button, input, select, textarea {
   .hero-buttons .btn {
     width: 100%;
   }
+
+  /* VIP Modal Mobile Adjustments */
+  .vip-popup-modal {
+    padding: 16px 12px;
+    align-items: center;
+  }
+  .vip-popup-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 28px 18px 22px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(249, 32, 86, 0.4);
+    margin: auto 0;
+  }
+  .vip-popup-close {
+    top: 12px;
+    right: 12px;
+    font-size: 1.2rem;
+  }
+  .vip-popup-header {
+    margin-bottom: 15px;
+  }
+  .vip-popup-title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  .vip-popup-desc {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  #vip-guestlist-form .form-group {
+    margin-bottom: 12px;
+  }
+  #vip-guestlist-form .form-input {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  #vip-guestlist-form .form-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+  #vip-guestlist-form .modal-submit-btn {
+    padding: 11px 16px;
+    font-size: 0.84rem;
+    letter-spacing: 0.5px;
+  }
+  .vip-pass-result {
+    padding: 16px 12px;
+    margin-top: 15px;
+  }
+  .vip-pass-code {
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -3529,5 +3647,24 @@ button, input, select, textarea {
     padding: 5px 8px;
     font-size: 0.65rem;
     letter-spacing: 0;
+  }
+
+  /* VIP Modal Small Screen Adjustments */
+  .vip-popup-modal {
+    padding: 10px 8px;
+  }
+  .vip-popup-card {
+    padding: 22px 14px 18px;
+    border-radius: 14px;
+  }
+  .vip-popup-title {
+    font-size: 1.15rem;
+  }
+  .vip-popup-desc {
+    font-size: 0.78rem;
+  }
+  #vip-guestlist-form .modal-submit-btn {
+    font-size: 0.80rem;
+    padding: 10px 12px;
   }
 }
